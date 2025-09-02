@@ -1,0 +1,29 @@
+[
+  {
+    "id": "uta",
+    "name": "University of Texas at Arlington",
+    "url": "https://www.uta.edu",
+    "programs": ["Business","Banking & Finance","Marketing","Accounting","Information Science","Information Systems","Biology","Architecture","Nursing","Engineering","Hospitality Management","Communications"],
+    "city": "Arlington",
+    "state": "TX",
+    "dataSource": "local"
+  },
+  {
+    "id": "unt",
+    "name": "University of North Texas",
+    "url": "https://www.unt.edu",
+    "programs": ["Business","Accounting","Finance","Psychology","Biological Sciences","Marketing","Information Technology","Criminal Justice","Education","Kinesiology","Liberal Arts","Journalism","Cybersecurity","Hospitality","Music"],
+    "city": "Denton",
+    "state": "TX",
+    "dataSource": "local"
+  },
+  {
+    "id": "tcc",
+    "name": "Tarrant County College",
+    "url": "https://www.tccd.edu",
+    "programs": ["Business","Management","Marketing","Health Professions","Security & Protective Services","Education","Liberal Arts & General Studies","Biomedical Technology","Radiologic Technology","Diagnostic Medical Sonography","Construction Technology","Mechanic & Repair","Computer Support"],
+    "city": "Fort Worth",
+    "state": "TX",
+    "dataSource": "local"
+  }
+]

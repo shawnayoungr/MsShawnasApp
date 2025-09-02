@@ -1,0 +1,4 @@
+{
+  "deprecated": true,
+  "message": "Mock data removed. Use the canonical /api/careeronestop proxy with real credentials."
+}

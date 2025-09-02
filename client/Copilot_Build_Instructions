@@ -1,0 +1,138 @@
+# Build Tracking Document
+Ms. Shawna's App
+
+## Overview
+
+Ms. Shawna's App is a comprehensive progressive web application designed to help high school seniors navigate their final year, college applications, scholarships, and career planning. The application provides a structured approach to managing the complex process of applying to colloge and scholarships through ai agents, voice assistance, interactive tools, and web api resources optimized for mobile devices to help students along the way.
+
+COPILOT Agent INSTRUCTIONS 
+## 🔧 HOW YOU MUST HELP ME:You are a senior softward deeloper and ai architect, build this modern progressive web app according to the latest trends in design and layout for visual appeal and modern aestetics while keeping with coding best practices.
+
+
+Always **explain what you’re doing in plain language**, without jargon or coding terms, then proceed with the tasks.
+Keep track of where we are in the process and what’s left.
+Do not assume I understand code structure—treat me like a beginner.
+Continue these instructions across all requests unless I say otherwise.
+
+## ✅ CONTEXT YOU MUST REMEMBER FOR THIS SESSION:
+
+- Copilot agent is building this app.  I give direction, save, and preview. 
+
+Everytime a change is made to the app or a new page is built, Copilot agent needs to automatically update the vites, routes, config files, json files, postcss, packages, url paths, imports, components, and server pages without prompting. 
+Everythime the server is restarted or the client folder is started, Copilot agent needs to address and fix errors without prompting.
+- Copilot Agent is **expected to make all changes for me**. I do not know code.
+- I will **not** be debugging or writing code myself.
+- I will **not** know when to use the npm run dev command or any other commands so copilot must do it or  give me the exact command to press enter.
+copilot agent must tell me which folder to highlight (client or server) when restarting or running commands, or installing packages. 
+Copilot agent will install all packages.
+
+
+## Navigation
+- **Top Navigation Bar**: Now implemented as a reusable React component (`src/components/TopNav.jsx`).
+- **Bottom Navigation Bar**: Now implemented as a reusable React component (`src/components/BottomNav.jsx`).
+  
+Both navigation bars are styled for mobile and included in the Splash page. Navigation icons use Material Icons CDN.
+
+## Global Styles
+- Tailwind CSS is enabled and active in `src/index.css`.
+- All global and component styles are mobile-first and visually consistent.
+
+## Notes
+- Reference screenshot of the current splash page UI is saved at `src/assets/original reference/screenshot_splash_2025-08-15.png` for future design alignment.
+
+# Build Tracking Updates
+
+## Navigation 
+- Top and Bottom navigation bars are now shared components and used in the Splash page.
+- **Modern mobile top right navigation menu** added: menu button in TopNav opens a slide-in menu (`TopMenu.jsx`) with links to all app pages, styled for mobile.
+- Material Icons are loaded via CDN in `index.html`.
+
+## Pages 
+- All required pages are created as React components in `src/pages/` (Checklist, Senior Stuff, College Search, Career Exploration, Scholarships, FAFSA Guide, Student Success, STEM, ChatGpt Assistant).
+- All routes are set up in `src/main.jsx` for navigation.
+
+## Assets
+- All images and collage assets are present in `src/assets/` and referenced in the UI.
+- Reference screenshot added for future design consistency.
+
+## Next Steps
+- Continue refining navigation and UI polish as needed.
+
+## Server Restart Instruction
+- After every fix or update to the server configuration, the server must be restarted automatically to verify the changes.
+- This ensures that all fixes are validated and the server runs without errors.
+Do this for the client folder as well.
+keep ports consistant.
+
+## Recent Changes (August 2025)
+
+### Mobile-First Responsive Design
+- The Splash (entry) page and all global styles have been updated for a mobile-only, progressive web app experience.
+- Layout, padding, font sizes, and navigation are optimized for smartphones (max-width set, centered, no horizontal scrolling).
+- All elements, text, and images scale and align perfectly on mobile screens.
+
+### Asset Naming and Import Best Practices
+- All images in the `src/assets` folder have been renamed to clear, consistent names (e.g., `student_smiling_1.jpg`, `student_girl_1.jpg`, `student_blank_logo_1.png`).
+- The `collageImages.js` file was updated to use only these new names, preventing import errors and improving maintainability.
+- After renaming or adding images, always restart the Vite dev server from the `client` folder to ensure changes are recognized.
+
+### Debugging and Build Process
+- After every build or code change, check the browser and developer console for errors or warnings.
+- If you see a white screen, check for missing imports, typos, or runtime errors.
+- Fix errors immediately before proceeding.
+
+----
+## College Search Page build guidlines 
+build a new mobile-only college search page with AI assistant functionality:
+Page Layout and Style
+
+- Create a new route 
+- Background: gradient from purple → pink → blue - Center a **large mic icon** (like Google Gemini)  Add animation (`animate-float` and `hover:scale-110`)
+- Above the mic icon, add the title in large bold text:  
+  "What three Texas colleges would you like to explore today?"
+- Top-right navigation and bottom navigation should stay visible at all times
+- Minimal scrolling — page height should stay within a single mobile screen view where possible
+
+---🔹 Voice Search Functionality
+
+- When user taps the mic, enable **Web Speech API (SpeechRecognition)** to record the user's voice input (3 college names)
+- Parse the voice input string into 3 separate college names
+- Use College Scorecard API (CollegeScorecardService 
+  private baseUrl = 'https://api.data.gov/ed/collegescorecard/v1/schools';
+  private fieldOfStudyUrl = 'https://api.data.gov/ed/collegescorecard/v1/schools/fields/';
+
+COLLEGE_SCORECARD_API_KEY=g64kOWBlBIYL3qA0NJoRWt7qarUqT6yQEeIt0OKK) to query each name, but only allow results for colleges in **Texas**
+- base search and results on documentation https://collegescorecard.ed.gov/data/api-documentation
+- Filter the results to only display schools with `school.state = "TX"`
+
+ Display Results
+
+- Create 3 separate college cards (build component)
+- Each card shows:
+  - School Name
+  - City
+  - Tuition
+  - Acceptance Rate
+  - Majors (top 3 only, rest shown as "+X more")
+  - School Type & Size
+- At the bottom of each card, include a button: "**"Learn More"**"
+  - When clicked, the card expands (accordion or modal) to show "all available data" from the College Scorecard API for that school
+  - If any numeric field is 0, display “Unknown instead
+  - Users stay inside the app unless they click the "visit school" URL
+
+---🔹 Conversation Agent Response
+
+- After displaying results, show this prompt below the cards:
+  > _"Is this what you were curious about?"_
+- User can then click:
+  - "Yes"
+  - "Try Another Search" (clears state and brings back the mic)
+
+---🔹 Tech & Config Notes
+
+- This must match Tailwind theme (mobile-first, with proper styles included)
+-create proper query functions and file based on documentation
+- Integrate speech recognition that runs on mic press
+- create all necessary files to page functional
+## Reference Copilot_Career-Voice-Search_Guide for  career search build and layout. 
+-use instructions from this document to understand how to proceed with the build.
