@@ -1,3 +1,59 @@
+/* Custom welcome hero styles to approximate the provided design */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Pacifico&display=swap');
+
+:root{
+  --accent-blue:#1E5BFF;
+  --coral:#FF5C6A;
+  --neon-yellow:#FFD800;
+  --neon-lime:#D9FF00;
+  --muted-blue:#1e73b8;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:#ffffff; /* changed to white per request */
+  color:#111;
+}
+
+.page-root{
+  max-width:420px;
+  margin:0 auto;
+}
+
+.top-roles{display:flex;flex-direction:column;gap:18px;padding:18px 16px;align-items:center}
+.role{width:86%;padding:20px 12px;border-radius:20px;border:none;font-size:32px;font-family:'Pacifico',cursive;box-shadow:0 8px 18px rgba(0,0,0,0.08);cursor:pointer}
+.role-student{background:transparent;color:var(--accent-blue)}
+.role-parent{background:transparent;color:var(--coral)}
+
+.hero{padding:8px 12px 40px;position:relative}
+.hero-collage{width:100%;height:auto;display:block;border-radius:6px}
+.hero-copy{text-align:center;margin-top:8px}
+.hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:36px;margin:8px 0}
+.hero-sub{font-weight:300;color:var(--muted-blue);font-size:16px;margin:0}
+
+.badge-row{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:12px}
+.badge-itstime{width:120px;transform:rotate(-6deg)}
+.did-you-know{font-family:'Bangers',cursive;color:var(--neon-yellow);font-size:34px;text-shadow:1px 1px 0 rgba(0,0,0,0.2)}
+
+.students-and-phones{position:relative;margin-top:18px}
+.students-group{width:58%;display:block}
+.phone-1{position:absolute;right:6px;top:14px;width:22%;transform:rotate(12deg)}
+.phone-2{position:absolute;right:2px;top:220px;width:22%;transform:rotate(18deg)}
+.ms-headshot{position:absolute;right:24px;top:6px;width:64px;border-radius:8px}
+
+.cta-area{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px}
+.btn-primary{background:var(--neon-lime);padding:12px 20px;border-radius:12px;border:none;font-weight:700}
+.script-cta{font-family:'Pacifico',cursive;color:var(--accent-blue);transform:skewX(-6deg);font-size:20px}
+.phone-pill{background:var(--neon-lime);padding:10px 14px;border-radius:10px;font-weight:800}
+
+@media(min-width:700px){
+  .page-root{max-width:720px}
+  .hero-name{font-size:44px}
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700;900&display=swap');
 
 :root{
