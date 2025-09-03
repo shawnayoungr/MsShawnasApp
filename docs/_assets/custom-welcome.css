@@ -1,5 +1,9 @@
-/* Custom welcome hero styles to approximate the provided design */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Pacifico&display=swap');
+/* Custom welcome hero styles (cleaned)
+   - Enforce white background everywhere
+   - Ensure PNGs with transparency render over white, not black
+   - Keep mobile-first layout and responsive rules
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Pacifico&family=Poppins:wght@300;400;600;800&display=swap');
 
 :root{
   --accent-blue:#1E5BFF;
@@ -9,44 +13,49 @@
   --muted-blue:#1e73b8;
 }
 
-html,body{
+html, body {
   height:100%;
   margin:0;
   padding:0;
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background:#ffffff; /* changed to white per request */
-  color:#111;
+  background: #ffffff !important; /* enforce white background */
+  color: #111;
 }
 
+/* container width for mobile-first layout */
 .page-root{
   max-width:420px;
   margin:0 auto;
+  background: transparent; /* page root sits on white body */
 }
 
-.top-roles{display:flex;flex-direction:column;gap:18px;padding:18px 16px;align-items:center}
-.role{width:86%;padding:20px 12px;border-radius:20px;border:none;font-size:32px;font-family:'Pacifico',cursive;box-shadow:0 8px 18px rgba(0,0,0,0.08);cursor:pointer}
-.role-student{background:transparent;color:var(--accent-blue)}
-.role-parent{background:transparent;color:var(--coral)}
+/* ensure any img backgrounds remain transparent */
+img { background: transparent !important; }
 
-.hero{padding:8px 12px 40px;position:relative}
-.hero-collage{width:100%;height:auto;display:block;border-radius:6px}
-.hero-copy{text-align:center;margin-top:8px}
-.hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:36px;margin:8px 0}
-.hero-sub{font-weight:300;color:var(--muted-blue);font-size:16px;margin:0}
+.top-roles{display:flex;flex-direction:column;gap:14px;padding:16px 14px;align-items:center}
+.role{width:88%;padding:14px 12px;border-radius:18px;border:none;font-size:28px;font-family:'Pacifico',cursive;box-shadow:0 8px 18px rgba(0,0,0,0.06);cursor:pointer;background:transparent}
+.role-student{color:var(--accent-blue)}
+.role-parent{color:var(--coral)}
+
+.hero{padding:8px 12px 36px;position:relative}
+.hero-collage{width:100%;height:auto;display:block;border-radius:8px}
+.hero-copy{text-align:center;margin-top:10px}
+.hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
+.hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
 
 .badge-row{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:12px}
 .badge-itstime{width:120px;transform:rotate(-6deg)}
-.did-you-know{font-family:'Bangers',cursive;color:var(--neon-yellow);font-size:34px;text-shadow:1px 1px 0 rgba(0,0,0,0.2)}
+.did-you-know{font-family:'Bangers',cursive;color:var(--neon-yellow);font-size:30px;text-shadow:1px 1px 0 rgba(0,0,0,0.06)}
 
-.students-and-phones{position:relative;margin-top:18px}
+.students-and-phones{position:relative;margin-top:16px}
 .students-group{width:58%;display:block}
 .phone-1{position:absolute;right:6px;top:14px;width:22%;transform:rotate(12deg)}
 .phone-2{position:absolute;right:2px;top:220px;width:22%;transform:rotate(18deg)}
 .ms-headshot{position:absolute;right:24px;top:6px;width:64px;border-radius:8px}
 
 .cta-area{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px}
-.btn-primary{background:var(--neon-lime);padding:12px 20px;border-radius:12px;border:none;font-weight:700}
-.script-cta{font-family:'Pacifico',cursive;color:var(--accent-blue);transform:skewX(-6deg);font-size:20px}
+.btn-primary{background:var(--neon-lime);padding:12px 18px;border-radius:12px;border:none;font-weight:700}
+.script-cta{font-family:'Pacifico',cursive;color:var(--accent-blue);transform:skewX(-6deg);font-size:18px}
 .phone-pill{background:var(--neon-lime);padding:10px 14px;border-radius:10px;font-weight:800}
 
 @media(min-width:700px){
@@ -54,29 +63,10 @@ html,body{
   .hero-name{font-size:44px}
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700;900&display=swap');
-
-:root{
-  --accent-yellow: #f7ff00;
-  --accent-blue: #1f6bf6;
-  --muted-blue: #1d5bb0;
+/* small adjustments for very small screens */
+@media (max-width:420px){
+  .role{font-size:20px}
+  .hero-name{font-size:28px}
+  .did-you-know{font-size:24px}
 }
-html,body{height:100%;margin:0;font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
-body{background:#000;color:#fff}
-.custom-welcome{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:4rem 1rem;box-sizing:border-box}
-.custom-welcome .hero-inner{max-width:420px;width:100%;text-align:center;position:relative}
-.custom-welcome .hero-collage{width:100%;height:auto;display:block;border-radius:12px}
-.hero-title{font-weight:900;color:var(--accent-blue);font-size:36px;margin:18px 0 6px;letter-spacing:1px}
-.hero-sub{font-weight:400;color:var(--muted-blue);font-size:18px;margin:0 0 18px}
-.cta-row{display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;margin-top:22px}
-.btn-primary{background:var(--accent-yellow);color:#000;border:none;padding:12px 18px;border-radius:8px;font-weight:700;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,0.25);}
-.phone{background:rgba(247,255,0,0.95);color:#000;padding:8px 14px;border-radius:10px;font-weight:800;display:inline-block}
-.script-cta{font-family:'Pacifico', cursive;color:var(--accent-blue);font-size:20px;margin-top:6px}
 
-/* small screens adjust */
-@media(min-width:900px){
-  .custom-welcome .hero-inner{max-width:720px}
-  .hero-title{font-size:64px}
-  .hero-sub{font-size:22px}
-  .btn-primary{padding:16px 26px;font-size:18px}
-}
