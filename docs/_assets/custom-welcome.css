@@ -63,9 +63,21 @@ img { background: transparent !important; }
 
 /* outlined lime effect used on DID YOU KNOW and college */
 .outlined-lime{
-  color: transparent;
+  /* Primary approach for WebKit/Blink: transparent fill with stroke */
+  color: var(--neon-lime); /* fallback for non-supporting browsers */
   -webkit-text-stroke: 3px var(--neon-lime);
-  text-stroke: 3px var(--neon-lime);
+  -webkit-text-fill-color: transparent; /* makes the inside transparent on WebKit/Blink */
+
+  /* Firefox / other browsers fallback: approximate outline using multiple text-shadow layers */
+  text-shadow:
+    1px 1px 0 var(--neon-lime),
+    -1px 1px 0 var(--neon-lime),
+    1px -1px 0 var(--neon-lime),
+    -1px -1px 0 var(--neon-lime),
+    2px 0 0 var(--neon-lime),
+    -2px 0 0 var(--neon-lime);
+
+  /* subtle lift from the background */
   filter: drop-shadow(0 2px 0 rgba(0,0,0,0.25));
 }
 
