@@ -58,6 +58,17 @@ img { background: transparent !important; }
 .badge-itstime{width:120px;transform:rotate(-6deg)}
 .did-you-know{font-family:'Bangers',cursive;color:var(--neon-yellow);font-size:30px;text-shadow:1px 1px 0 rgba(0,0,0,0.06)}
 
+/* Rubik Distressed utility */
+.rubik-distressed-regular { font-family: "Rubik Distressed", system-ui; font-weight:400; font-style:normal }
+
+/* outlined lime effect used on DID YOU KNOW and college */
+.outlined-lime{
+  color: transparent;
+  -webkit-text-stroke: 3px var(--neon-lime);
+  text-stroke: 3px var(--neon-lime);
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.25));
+}
+
 .students-and-phones{position:relative;margin-top:16px}
 .students-group{width:58%;display:block}
 .phone-1{position:absolute;right:6px;top:14px;width:22%;transform:rotate(12deg)}
@@ -68,6 +79,18 @@ img { background: transparent !important; }
 .btn-primary{background:var(--neon-lime);padding:12px 18px;border-radius:12px;border:none;font-weight:700}
 .script-cta{font-family:'Pacifico',cursive;color:var(--accent-blue);transform:skewX(-6deg);font-size:18px}
 .phone-pill{background:var(--neon-lime);padding:10px 14px;border-radius:10px;font-weight:800}
+
+/* Kalam handwritten font utilities */
+.kalam-light { font-family: "Kalam", cursive; font-weight:300; font-style:normal }
+.kalam-regular { font-family: "Kalam", cursive; font-weight:400; font-style:normal }
+.kalam-bold { font-family: "Kalam", cursive; font-weight:700; font-style:normal }
+
+/* apply Kalam to script CTA */
+.script-cta{font-family: "Kalam", cursive; font-weight:700; color:var(--accent-blue); transform:skewX(-6deg); font-size:18px}
+
+/* Bevan display for 'college applications' */
+.bevan-regular { font-family: "Bevan", serif; font-weight:400; font-style:normal }
+.bevan-regular-italic { font-family: "Bevan", serif; font-weight:400; font-style:italic }
 
 @media(min-width:700px){
   .page-root{max-width:720px}
