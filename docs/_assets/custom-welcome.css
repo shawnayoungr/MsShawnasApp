@@ -48,10 +48,17 @@ img { background: transparent !important; }
     while the mid slice is tucked underneath. Increase z-index for clarity. */
   .hero-collage:not(.hero-mid){z-index:3;position:relative}
 
-  /* Lift the middle image up so it sits underneath the parent/student slice.
-    Negative margin creates overlap but keeps the mid image visually behind the
-    top slice so the duplicated shadow isn't visible. Adjust value as needed. */
-  .hero-mid{display:block;margin-top:-18px;position:relative;z-index:1}
+  /* Move the middle image up so it tucks under the parent/student slice.
+    The shadow is baked into the PNG; we hide the duplicated shadow portion by
+    (1) shifting the mid image further up with a larger negative margin so it
+    sits underneath, and (2) clipping off the top few pixels of the mid image
+    so the baked-in shadow doesn't show. Tweak the inset and margin values as
+    needed for your exact slices. */
+  .hero-mid{display:block;margin-top:-34px;position:relative;z-index:1;/* tuck under */
+        /* hide the top 18px of the mid image (adjust if needed) */
+        -webkit-clip-path: inset(18px 0 0 0);
+        clip-path: inset(18px 0 0 0);
+        }
   .hero-bottom{display:block}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
