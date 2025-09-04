@@ -103,10 +103,10 @@ img { background: transparent !important; }
 /* Parent page CTA overlay - mobile-first positioning */
 .parent-cta-overlay{
   position:absolute;
-  left:62%;
-  top:44%;
-  width:26%;
-  height:12%;
+  left:54%;
+  top:12%; /* moved up to target the lime pill at the top of the bottom image */
+  width:32%;
+  height:16%;
   display:block;
   background:transparent;
   border-radius:12px;
@@ -125,11 +125,11 @@ img { background: transparent !important; }
 
 @media(max-width:420px){
   /* make hit area a bit larger on tiny screens for easy tapping */
-  .parent-cta-overlay{left:58%;top:46%;width:30%;height:14%}
+  .parent-cta-overlay{left:52%;top:12%;width:36%;height:18%}
 }
 
 @media(min-width:700px){
-  .parent-cta-overlay{left:68%;top:34%;width:14%;height:10%}
+  .parent-cta-overlay{left:70%;top:18%;width:18%;height:12%}
 }
 /* Index page pill overlay (target the lime pill inside the bottom hero image) */
 .index-pill-overlay{
