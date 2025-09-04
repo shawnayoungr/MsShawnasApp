@@ -7,10 +7,57 @@
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
 </head>
 <body>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <div class="brand" aria-hidden="true">&nbsp;</div>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <nav class="offcanvas" id="site-menu" aria-hidden="true">
+      <button id="menu-close" class="menu-close" aria-label="Close menu">✕</button>
+      <ul class="menu-list">
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/student.html">For Students</a></li>
+        <li><a href="/parent.html">What Parents Need to Know</a></li>
+        <li><a href="/who-is-ms.html">Who is Ms. Shawna</a></li>
+        <li><a href="/set-up-session.html">Set Up a Session</a></li>
+        <li><a href="/why-pay.html">Why Pay?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <!-- Top image for students -->
+    <img src="./_assets/images/forstudents_top.png" alt="For Students Top" class="hero-collage">
+
+    <!-- Bottom/content image for students -->
+    <img src="./_assets/images/forstudents_bottom.png" alt="For Students Bottom" class="hero-collage">
+  </section>
+
   <main class="page-root">
-    <h1 style="text-align:center;margin-top:80px">For Students</h1>
-    <p style="max-width:600px;margin:20px auto;padding:0 14px;">This is a placeholder page for students. Replace with content when ready.</p>
-    <p style="text-align:center"><a href="/">← Back</a></p>
+    <div class="cta-area">
+      <button class="btn-primary">Book a Student Session</button>
+      <div class="script-cta">FREE 15-minute consult for seniors</div>
+      <a class="phone-pill" href="sms:+16822680063?body=Ms.%20Shawna%20I%20need%20help.%20My%20name%20is">(682) 268-0063</a>
+    </div>
   </main>
+
+  <footer style="padding:18px 12px;text-align:center;color:#666;font-size:13px">
+    <div class="footer-copy kalam-regular">Helping students & parents navigate the college admissions process</div>
+  </footer>
+
+  <script>
+    // off-canvas menu behavior
+    (function(){
+      const toggle = document.getElementById('menu-toggle');
+      const close = document.getElementById('menu-close');
+      const menu = document.getElementById('site-menu');
+      if(toggle && menu){
+        toggle.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','false')});
+      }
+      if(close && menu){
+        close.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','true')});
+      }
+    })();
+  </script>
 </body>
 </html>
