@@ -83,6 +83,14 @@ img { background: transparent !important; }
 @media(min-width:700px){
   .phone-overlay{left:8%;top:38%;width:22%;height:30%}
 }
+
+/* overlay for the 'click here' circle that appears near the top-right of the hero */
+.click-overlay{position:absolute;right:12%;top:6%;width:18%;height:18%;display:block;z-index:11;border-radius:50%}
+.click-overlay:hover{outline:3px dashed rgba(30,91,255,0.14)}
+
+@media(min-width:700px){
+  .click-overlay{right:10%;top:4%;width:12%;height:12%}
+}
   .hero-bottom{display:block}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
