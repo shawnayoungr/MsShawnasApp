@@ -100,6 +100,37 @@ img { background: transparent !important; }
 @media(min-width:700px){
   .click-overlay{right:10%;top:4%;width:12%;height:12%}
 }
+/* Parent page CTA overlay - mobile-first positioning */
+.parent-cta-overlay{
+  position:absolute;
+  left:62%;
+  top:44%;
+  width:26%;
+  height:12%;
+  display:block;
+  background:transparent;
+  border-radius:12px;
+  border:2px solid transparent;
+  z-index:12;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:box-shadow 120ms ease, transform 120ms ease;
+}
+.parent-cta-overlay:hover,
+.parent-cta-overlay:focus{
+  box-shadow:0 8px 18px rgba(32,33,36,0.18);
+  transform:translateY(-2px);
+  outline:none;
+}
+
+@media(max-width:420px){
+  /* make hit area a bit larger on tiny screens for easy tapping */
+  .parent-cta-overlay{left:58%;top:46%;width:30%;height:14%}
+}
+
+@media(min-width:700px){
+  .parent-cta-overlay{left:68%;top:34%;width:14%;height:10%}
+}
   .hero-bottom{display:block}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}

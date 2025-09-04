@@ -7,10 +7,38 @@
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
 </head>
 <body>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <div class="brand" aria-hidden="true">&nbsp;</div>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <nav class="offcanvas" id="site-menu" aria-hidden="true">
+      <button id="menu-close" class="menu-close" aria-label="Close menu">✕</button>
+      <ul class="menu-list">
+        <li><a href="index.html">Welcome</a></li>
+        <li><a href="student.html">For Students</a></li>
+        <li><a href="parent.html">What Parents Need to Know</a></li>
+        <li><a href="who-is-ms.html">Who is Ms. Shawna</a></li>
+        <li><a href="set-up-session.html">Set Up a Session</a></li>
+        <li><a href="why-pay.html">Why Pay?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div class="hero-wrapper">
+      <img src="./_assets/images/parents_top.png" alt="Parents Top" class="hero-collage">
+      <!-- overlay for lime 'Book a free Consultation' pill next to phone -->
+      <a class="parent-cta-overlay" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20need%20help%20with%20college%20admissions.%20My%20name%20is" aria-label="Book a free consultation" title="Book a free consultation"></a>
+    </div>
+
+    <img src="./_assets/images/parents_bottom.png" alt="Parents Bottom" class="hero-collage">
+  </section>
+
   <main class="page-root">
-    <h1 style="text-align:center;margin-top:80px">What Parents Need to Know</h1>
-    <p style="max-width:600px;margin:20px auto;padding:0 14px;">Placeholder for parent-focused content. Replace when content is ready.</p>
-    <p style="text-align:center"><a href="/">← Back</a></p>
+    <div class="cta-area">
+      <div class="script-cta">Helping parents & students navigate the college process</div>
+    </div>
   </main>
 </body>
 </html>
