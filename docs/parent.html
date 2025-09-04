@@ -37,8 +37,27 @@
 
   <main class="page-root">
     <div class="cta-area">
+      <!-- Prominent SMS CTA (mobile-first) -->
+      <a class="btn-primary sms-cta" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20need%20help%20with%20college%20admissions.%20My%20name%20is">Book a free Consultation</a>
+
       <div class="script-cta">Helping parents & students navigate the college process</div>
+      <a class="phone-pill" href="sms:+16822680063?body=Ms.%20Shawna%20I%20need%20help.%20My%20name%20is">(682) 268-0063</a>
     </div>
   </main>
+  
+  <script>
+    // off-canvas menu behavior (same as student page)
+    (function(){
+      const toggle = document.getElementById('menu-toggle');
+      const close = document.getElementById('menu-close');
+      const menu = document.getElementById('site-menu');
+      if(toggle && menu){
+        toggle.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','false')});
+      }
+      if(close && menu){
+        close.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','true')});
+      }
+    })();
+  </script>
 </body>
 </html>
