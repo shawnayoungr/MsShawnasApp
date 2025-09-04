@@ -158,6 +158,23 @@ img { background: transparent !important; }
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
 .hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
 
+  /* Help row: text left, image right. Mobile-first stacking with responsive side-by-side on wider screens */
+  .help-row{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:12px 10px;margin-top:12px}
+  .help-text{flex:1;margin:0;padding-right:10px;font-size:18px;color:#0b3b6b;font-weight:700}
+  .help-image{width:36%;height:auto;flex-shrink:0;border-radius:8px}
+
+  @media(max-width:420px){
+    .help-row{flex-direction:row;align-items:center;padding:10px}
+    .help-text{font-size:16px}
+    .help-image{width:40%}
+  }
+
+  @media(min-width:700px){
+    .help-row{max-width:720px;margin:18px auto;padding:14px 18px}
+    .help-text{font-size:20px;padding-right:18px}
+    .help-image{width:26%}
+  }
+
 /* Londrina Solid font utility classes (for hero title) */
 .londrina-solid-thin { font-family: "Londrina Solid", sans-serif; font-weight:100; font-style:normal }
 .londrina-solid-light { font-family: "Londrina Solid", sans-serif; font-weight:300; font-style:normal }
