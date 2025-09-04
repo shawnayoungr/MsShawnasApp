@@ -69,6 +69,8 @@ img { background: transparent !important; }
   .role{width:92%}
   .cta-area{margin-top:12px;gap:8px}
   .btn-primary{padding:10px 14px}
+  /* make the sms CTA prominent and full-width on phones */
+  .sms-cta{display:block;width:100%;text-align:center;padding:12px 14px;border-radius:12px;background:var(--neon-lime);color:#000;font-weight:800}
 }
 
 /* Hero wrapper to allow clickable overlay on top of the phone artwork */
