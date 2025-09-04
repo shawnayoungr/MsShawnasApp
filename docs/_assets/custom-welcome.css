@@ -130,3 +130,19 @@ img { background: transparent !important; }
 /* Make overlays visible during development by uncommenting the background rule below */
 /* .overlay{background:rgba(255,0,0,0.12);} */
 
+/* Top-right off-canvas menu (hamburger) */
+.top-nav{position:fixed;top:8px;right:8px;z-index:60}
+.nav-inner{display:flex;align-items:center;gap:8px}
+.menu-toggle{background:transparent;border:0;font-size:20px;padding:8px;border-radius:6px;cursor:pointer}
+.offcanvas{position:fixed;top:0;right:-320px;width:320px;height:100vh;background:#fff;box-shadow:-8px 0 30px rgba(0,0,0,0.12);z-index:70;transition:right .28s ease}
+.offcanvas[aria-hidden="false"]{right:0}
+.menu-close{position:absolute;top:12px;left:12px;border:0;background:transparent;font-size:20px}
+.menu-list{list-style:none;padding:56px 20px 20px;margin:0}
+.menu-list li{margin:14px 0}
+.menu-list a{color:#111;text-decoration:none;font-weight:600}
+
+/* small-screen tweak to make the menu full width and push content visually */
+@media(max-width:420px){
+  .offcanvas{width:72vw}
+}
+

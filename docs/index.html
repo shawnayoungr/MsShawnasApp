@@ -12,6 +12,23 @@
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
 </head>
 <body>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <div class="brand" aria-hidden="true">&nbsp;</div>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <nav class="offcanvas" id="site-menu" aria-hidden="true">
+      <button id="menu-close" class="menu-close" aria-label="Close menu">✕</button>
+      <ul class="menu-list">
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/student.html">For Students</a></li>
+        <li><a href="/parent.html">What Parents Need to Know</a></li>
+        <li><a href="/who-is-ms.html">Who is Ms. Shawna</a></li>
+        <li><a href="/set-up-session.html">Set Up a Session</a></li>
+        <li><a href="/why-pay.html">Why Pay?</a></li>
+      </ul>
+    </nav>
+  </header>
   
 
       <section class="hero">
@@ -54,6 +71,19 @@
     <script>
       // small enhancement: make header roles keyboard accessible
       document.querySelectorAll('.role').forEach(btn=>btn.addEventListener('click', ()=>{btn.classList.toggle('active')}));
+
+      // off-canvas menu toggle
+      (function(){
+        const toggle = document.getElementById('menu-toggle');
+        const close = document.getElementById('menu-close');
+        const menu = document.getElementById('site-menu');
+        if(toggle && menu){
+          toggle.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','false')});
+        }
+        if(close && menu){
+          close.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','true')});
+        }
+      })();
     </script>
   </body>
   </html>
