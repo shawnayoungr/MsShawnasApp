@@ -37,8 +37,14 @@ img { background: transparent !important; }
 .role-student{color:var(--accent-blue)}
 .role-parent{color:var(--coral)}
 
-.hero{padding:8px 12px 36px;position:relative}
-.hero-collage{width:100%;height:auto;display:block;border-radius:8px}
+  .hero{padding:0;position:relative}
+  .hero-media{position:relative;margin:0}
+  .hero-media a{display:block;line-height:0;margin:0;padding:0}
+  .hero-media img{display:block;width:100%;height:auto;margin:0;padding:0;border-radius:0}
+.hero-media{position:relative}
+.hero-media a{display:block;padding:0;margin:0;border:0}
+.hero-media a img{display:block;width:100%;height:auto;margin:0;padding:0}
+  .hero-collage{width:100%;height:auto;display:block}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
 .hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
@@ -81,11 +87,7 @@ img { background: transparent !important; }
   filter: drop-shadow(0 2px 0 rgba(0,0,0,0.25));
 }
 
-.students-and-phones{position:relative;margin-top:16px}
-.students-group{width:58%;display:block}
-.phone-1{position:absolute;right:6px;top:14px;width:22%;transform:rotate(12deg)}
-.phone-2{position:absolute;right:2px;top:220px;width:22%;transform:rotate(18deg)}
-.ms-headshot{position:absolute;right:24px;top:6px;width:64px;border-radius:8px}
+
 
 .cta-area{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px}
 .btn-primary{background:var(--neon-lime);padding:12px 18px;border-radius:12px;border:none;font-weight:700}
@@ -116,19 +118,7 @@ img { background: transparent !important; }
   .did-you-know{font-size:24px}
 }
 
-/* Overlay anchors that sit above the collage graphic and make the graphic buttons clickable
-   These are invisible but receive pointer events. Adjust positions/sizes if the graphic changes. */
-.students-and-phones{position:relative}
-/* Make the hero-media a positioning context so overlays align with the Welcome.png */
-.hero-media{position:relative}
-.overlay{position:absolute;display:block;background:transparent;border:0;outline:0;z-index:40;cursor:pointer}
-/* Use percentage-based positions and sizing so the overlay areas scale with the image */
-.hero-media .overlay-student{ /* covers the upper button area labeled 'Student' */
-  left:6%;top:9%;width:88%;height:12%;
-}
-.hero-media .overlay-parent{ /* covers the lower button area labeled 'Parent' */
-  left:6%;top:22%;width:88%;height:12%;
-}
+
 
 /* Make overlays visible during development by uncommenting the background rule below */
 /* .overlay{background:rgba(255,0,0,0.12);} */
