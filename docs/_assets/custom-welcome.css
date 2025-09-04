@@ -38,7 +38,15 @@ img { background: transparent !important; }
 .role-parent{color:var(--coral)}
 
   /* simplified hero: images are placed directly in the page to avoid layout issues */
-  .hero-collage{width:100%;height:auto;display:block;margin:0;padding:0;border-radius:0}
+  .hero-collage{width:100%;height:auto;display:block;margin:0;padding:0;border-radius:0;box-shadow:none;position:relative}
+
+  /* Keep the middle hero slightly separated and stacked behind the student/parent slices
+    to avoid visual double-shadows caused by image overlap. Using position + z-index
+    ensures the visible top edges and shadows of the parent/student images are not
+    covered by the mid slice. */
+  .hero-collage:not(.hero-mid){z-index:2}
+  .hero-mid{display:block;margin-top:8px;position:relative;z-index:1}
+  .hero-bottom{display:block}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
 .hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
