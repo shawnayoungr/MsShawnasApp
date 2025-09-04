@@ -55,10 +55,21 @@ img { background: transparent !important; }
     so the baked-in shadow doesn't show. Tweak the inset and margin values as
     needed for your exact slices. */
   .hero-mid{display:block;margin-top:-34px;position:relative;z-index:1;/* tuck under */
-        /* hide the top 18px of the mid image (adjust if needed) */
-        -webkit-clip-path: inset(18px 0 0 0);
-        clip-path: inset(18px 0 0 0);
-        }
+            /* hide the top 18px of the mid image (adjust if needed) */
+            -webkit-clip-path: inset(18px 0 0 0);
+            clip-path: inset(18px 0 0 0);
+            }
+
+/* Mobile-first overrides: tighten spacing and adjust overlap for narrow viewports */
+@media (max-width:420px){
+  .page-root{padding:0 8px}
+  .hero-collage{border-radius:10px}
+  /* increase overlap on tiny screens to fully hide the baked shadow */
+  .hero-mid{margin-top:-44px;-webkit-clip-path: inset(22px 0 0 0);clip-path: inset(22px 0 0 0);}
+  .role{width:92%}
+  .cta-area{margin-top:12px;gap:8px}
+  .btn-primary{padding:10px 14px}
+}
   .hero-bottom{display:block}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
