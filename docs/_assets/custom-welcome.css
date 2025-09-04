@@ -159,14 +159,17 @@ img { background: transparent !important; }
   .hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
 
   /* cta-art: user-supplied artwork placed to the right of .script-cta */
-  .cta-art{width:36%;height:auto;flex-shrink:0;border-radius:8px;margin-left:10px}
+  /* make the CTA artwork larger on mobile for better visibility (mobile-first) */
+  .cta-art{width:48%;height:auto;flex-shrink:0;border-radius:8px;margin-left:10px}
 
   @media(max-width:420px){
-    .cta-art{width:40%;margin-left:8px}
+    /* extra-large on very small screens for readability */
+    .cta-art{width:54%;margin-left:8px}
   }
 
   @media(min-width:700px){
-    .cta-art{width:26%;margin-left:18px}
+    /* slightly larger desktop image while preserving layout */
+    .cta-art{width:30%;margin-left:18px}
   }
 
 /* Londrina Solid font utility classes (for hero title) */
