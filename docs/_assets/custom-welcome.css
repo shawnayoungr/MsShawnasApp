@@ -119,12 +119,15 @@ img { background: transparent !important; }
 /* Overlay anchors that sit above the collage graphic and make the graphic buttons clickable
    These are invisible but receive pointer events. Adjust positions/sizes if the graphic changes. */
 .students-and-phones{position:relative}
-.overlay{position:absolute;display:block;background:transparent;border:0;outline:0}
-.overlay-student{ /* tuned for mobile crop of hero-collage.png */
-  left:6%;top:180px;width:88%;height:120px; /* covers first 'I'm a Student' graphic */
+/* Make the hero-media a positioning context so overlays align with the Welcome.png */
+.hero-media{position:relative}
+.overlay{position:absolute;display:block;background:transparent;border:0;outline:0;z-index:40;cursor:pointer}
+/* Use percentage-based positions and sizing so the overlay areas scale with the image */
+.hero-media .overlay-student{ /* covers the upper button area labeled 'Student' */
+  left:6%;top:9%;width:88%;height:12%;
 }
-.overlay-parent{ /* positioned slightly lower to cover the parent graphic */
-  left:6%;top:320px;width:88%;height:120px;
+.hero-media .overlay-parent{ /* covers the lower button area labeled 'Parent' */
+  left:6%;top:22%;width:88%;height:12%;
 }
 
 /* Make overlays visible during development by uncommenting the background rule below */
