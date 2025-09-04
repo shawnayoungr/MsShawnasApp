@@ -70,6 +70,19 @@ img { background: transparent !important; }
   .cta-area{margin-top:12px;gap:8px}
   .btn-primary{padding:10px 14px}
 }
+
+/* Hero wrapper to allow clickable overlay on top of the phone artwork */
+.hero-wrapper{position:relative;display:block}
+
+/* phone overlay: by default full-width/height of the phone's approximate area.
+   mobile-first: place the clickable area where the phone appears in the image. */
+.phone-overlay{position:absolute;left:10%;top:40%;width:32%;height:28%;display:block;z-index:10}
+.phone-overlay:hover{outline:2px solid rgba(30,91,255,0.12)}
+
+/* Adjustments for larger screens (if phone artwork shifts) */
+@media(min-width:700px){
+  .phone-overlay{left:8%;top:38%;width:22%;height:30%}
+}
   .hero-bottom{display:block}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}

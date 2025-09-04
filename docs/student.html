@@ -26,8 +26,12 @@
   </header>
 
   <section>
-    <!-- Top image for students -->
-    <img src="./_assets/images/forstudents_top.png" alt="For Students Top" class="hero-collage">
+    <!-- Top image for students (wrapper allows a positioned SMS overlay on the phone graphic) -->
+    <div class="hero-wrapper">
+      <img src="./_assets/images/forstudents_top.png" alt="For Students Top" class="hero-collage">
+      <!-- Accessible overlay: taps/clicks the phone graphic to open SMS with prefilled message -->
+      <a class="phone-overlay" href="sms:+16822680063?body=Ms.%20Shawna%20I%20need%20help.%20My%20name%20is" aria-label="Text Ms. Shawna" title="Text Ms. Shawna"></a>
+    </div>
 
     <!-- Bottom/content image for students -->
     <img src="./_assets/images/forstudents_bottom.png" alt="For Students Bottom" class="hero-collage">
