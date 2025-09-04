@@ -90,6 +90,12 @@ img { background: transparent !important; }
 .click-overlay{position:absolute;right:12%;top:6%;width:18%;height:18%;display:block;z-index:11;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent}
 /* match phone overlay hover style for consistent feedback */
 .click-overlay:hover{outline:2px solid rgba(30,91,255,0.12);background:rgba(30,91,255,0.03)}
+.click-overlay:active{transform:translateY(1px);opacity:0.95}
+
+/* mobile-first tweak: make hit area slightly larger on small screens so taps are easy */
+@media(max-width:420px){
+  .click-overlay{right:10%;top:8%;width:22%;height:22%}
+}
 
 @media(min-width:700px){
   .click-overlay{right:10%;top:4%;width:12%;height:12%}
