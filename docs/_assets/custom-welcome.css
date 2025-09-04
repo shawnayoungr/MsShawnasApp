@@ -116,3 +116,17 @@ img { background: transparent !important; }
   .did-you-know{font-size:24px}
 }
 
+/* Overlay anchors that sit above the collage graphic and make the graphic buttons clickable
+   These are invisible but receive pointer events. Adjust positions/sizes if the graphic changes. */
+.students-and-phones{position:relative}
+.overlay{position:absolute;display:block;background:transparent;border:0;outline:0}
+.overlay-student{ /* tuned for mobile crop of hero-collage.png */
+  left:6%;top:180px;width:88%;height:120px; /* covers first 'I'm a Student' graphic */
+}
+.overlay-parent{ /* positioned slightly lower to cover the parent graphic */
+  left:6%;top:320px;width:88%;height:120px;
+}
+
+/* Make overlays visible during development by uncommenting the background rule below */
+/* .overlay{background:rgba(255,0,0,0.12);} */
+
