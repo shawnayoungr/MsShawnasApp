@@ -37,14 +37,8 @@ img { background: transparent !important; }
 .role-student{color:var(--accent-blue)}
 .role-parent{color:var(--coral)}
 
-  .hero{padding:0;position:relative}
-  .hero-media{position:relative;margin:0}
-  .hero-media a{display:block;line-height:0;margin:0;padding:0}
-  .hero-media img{display:block;width:100%;height:auto;margin:0;padding:0;border-radius:0}
-.hero-media{position:relative}
-.hero-media a{display:block;padding:0;margin:0;border:0}
-.hero-media a img{display:block;width:100%;height:auto;margin:0;padding:0}
-  .hero-collage{width:100%;height:auto;display:block}
+  /* simplified hero: images are placed directly in the page to avoid layout issues */
+  .hero-collage{width:100%;height:auto;display:block;margin:0;padding:0;border-radius:0}
 .hero-copy{text-align:center;margin-top:10px}
 .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
 .hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
