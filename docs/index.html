@@ -1,4 +1,5 @@
 <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -29,52 +30,50 @@
       </ul>
     </nav>
   </header>
-  
 
-      <section>
-        <!-- Sliced hero images placed directly so CSS hooks don't interfere -->
-          <a href="/student.html" aria-label="I am a student - learn more">
-            <img src="./_assets/images/welcomestudent.png" alt="I'm a Student" class="hero-collage">
-          </a>
-          <a href="/parent.html" aria-label="I am a parent - learn more">
-            <img src="./_assets/images/welcomeparent.png" alt="I'm a Parent" class="hero-collage">
-          </a>
-          <img src="./_assets/images/welcomemid.png" alt="hero middle" class="hero-collage">
-          <img src="./_assets/images/welcomebottom.png" alt="hero bottom" class="hero-collage">
-      </section>
-        
+  <section>
+    <!-- Sliced hero images placed directly so CSS hooks don't interfere -->
+    <a href="/student.html" aria-label="I am a student - learn more">
+      <img src="./_assets/images/welcomestudent.png" alt="I'm a Student" class="hero-collage">
+    </a>
+    <a href="/parent.html" aria-label="I am a parent - learn more">
+      <img src="./_assets/images/welcomeparent.png" alt="I'm a Parent" class="hero-collage">
+    </a>
+    <img src="./_assets/images/welcomemid.png" alt="hero middle" class="hero-collage hero-mid">
+    <a href="sms:+16822680063?body=Ms.%20Shawna%20I%20need%20help.%20My%20name%20is" aria-label="Text Ms. Shawna">
+      <img src="./_assets/images/welcomebottom.png" alt="hero bottom" class="hero-collage hero-bottom">
+    </a>
+  </section>
 
+  <main class="page-root">
+    <div class="cta-area">
+      <button class="btn-primary">Book a free Consultation</button>
+      <div class="script-cta">DON'T WAIT IN LINE</div>
+      <a class="phone-pill" href="sms:+16822680063?body=Ms.%20Shawna%20I%20need%20help.%20My%20name%20is">(682) 268-0063</a>
+    </div>
+  </main>
 
-        
+  <footer style="padding:18px 12px;text-align:center;color:#666;font-size:13px">
+    <div class="footer-copy kalam-regular">Helping students & parents navigate the college admissions process</div>
+  </footer>
 
-        <div class="cta-area">
-          <button class="btn-primary">Book a free Consultation</button>
-          <div class="script-cta">DON'T WAIT IN LINE</div>
-          <a class="phone-pill" href="sms:+16822680063?body=Ms.%20Shawna%20I%20need%20help.%20My%20name%20is">(682) 268-0063</a>
-        </div>
-      </section>
+  <script>
+    // small enhancement: make header roles keyboard accessible
+    document.querySelectorAll('.role').forEach(btn=>btn.addEventListener('click', ()=>{btn.classList.toggle('active')}));
 
-      <footer style="padding:18px 12px;text-align:center;color:#666;font-size:13px">
-        <div>Helping students & parents navigate the college admissions process</div>
-      </footer>
-    </main>
-
-    <script>
-      // small enhancement: make header roles keyboard accessible
-      document.querySelectorAll('.role').forEach(btn=>btn.addEventListener('click', ()=>{btn.classList.toggle('active')}));
-
-      // off-canvas menu toggle
-      (function(){
-        const toggle = document.getElementById('menu-toggle');
-        const close = document.getElementById('menu-close');
-        const menu = document.getElementById('site-menu');
-        if(toggle && menu){
-          toggle.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','false')});
-        }
-        if(close && menu){
-          close.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','true')});
-        }
-      })();
-    </script>
-  </body>
+    // off-canvas menu toggle
+    (function(){
+      const toggle = document.getElementById('menu-toggle');
+      const close = document.getElementById('menu-close');
+      const menu = document.getElementById('site-menu');
+      if(toggle && menu){
+        toggle.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','false')});
+      }
+      if(close && menu){
+        close.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','true')});
+      }
+    })();
+  </script>
+</body>
+</html>
   </html>
