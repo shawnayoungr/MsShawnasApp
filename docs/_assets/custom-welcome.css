@@ -217,14 +217,16 @@ img { background: transparent !important; }
 .script-cta{font-family:'Pacifico',cursive;color:var(--accent-blue);transform:skewX(-6deg);font-size:18px}
 .phone-pill{background:var(--neon-lime);padding:10px 14px;border-radius:10px;font-weight:800}
 
-/* cta-with-art: place script-cta left, artwork on the right (mobile-first) */
+/* cta-with-art: desktop/tablet side-by-side, mobile stacks with large artwork below */
 .cta-with-art{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:8px 10px;width:100%}
 .cta-with-art .script-cta{flex:1;margin:0;text-align:left}
 .cta-art{width:36%;height:auto;flex-shrink:0;border-radius:8px;margin-left:10px}
 
+/* Mobile-first: stack and make artwork full-width for best viewing on phones */
 @media(max-width:420px){
-  .cta-with-art{padding:8px}
-  .cta-art{width:40%}
+  .cta-with-art{flex-direction:column;align-items:stretch;padding:8px}
+  .cta-with-art .script-cta{margin:0 0 8px 0;text-align:center}
+  .cta-art{width:100%;margin-left:0;border-radius:8px}
 }
 
 @media(min-width:700px){
