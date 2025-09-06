@@ -7,46 +7,52 @@
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
   <style>
     /* Feature box: pulled-up gradient rounded box (mobile-first) */
-  .feature-box{
+    .feature-box{
       /* gentle cool gradient similar to the design */
       background: linear-gradient(135deg, #e6fbff 0%, #d8f0ff 50%, #dbeafe 100%);
       border-radius:16px;
-      padding:12px 14px;
+      padding:12px 12px;
       box-shadow: 0 10px 30px rgba(2,8,20,0.08);
-  /* pull the box up so it sits under the bottom of the hero image (tighter) */
-  margin: -54px 10px 18px;
+      /* wider box on mobile (full width minus gutters) */
+      width: calc(100% - 24px);
+      box-sizing: border-box;
+      margin: -48px 12px 18px;
       -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
     }
-    .features{ list-style: disc; padding-left:22px; margin:0; color:#032b3a; font-size:17px; line-height:1.34; }
-    .features li{ margin:8px 0; font-weight:800; }
+    .features{ list-style: disc; padding-left:20px; margin:0; color:#032b3a; font-size:16px; line-height:1.3; word-break: normal; hyphens: none; letter-spacing: -0.25px; }
+    .features li{ margin:6px 0; font-weight:800; }
     /* larger, darker list markers for emphasis */
     .features li::marker{ color:#024b5a; font-size:1.05em; }
     @media (min-width:640px){
-      .feature-box{ padding:18px 22px; border-radius:18px; max-width:820px; margin-left:auto; margin-right:auto; }
-      .features{ font-size:19px; }
-      .features li{ line-height:1.4; }
-      .feature-box{ margin-top: -72px; }
+  .feature-box{ padding:18px 22px; border-radius:18px; max-width:920px; margin-left:auto; margin-right:auto; }
+  .features{ font-size:18.5px; }
+  .features li{ line-height:1.4; }
+  .feature-box{ margin-top: -72px; }
     }
 
     /* hero wrapper needs relative positioning for overlays */
-    .hero-wrapper{ position: relative; }
+  .hero-wrapper{ position: relative; }
+  .hero-wrapper img.hero-collage{ display:block; width:100%; height:auto; z-index:0; }
 
     /* CTA on the student in the black hoodie (top image) */
     .hoodie-cta{
       position: absolute;
       right: 16px;
       bottom: 6px;
-      background: linear-gradient(90deg,#fff35d 0%, #ffd24a 100%);
+      /* subtle circular CTA so it doesn't create a large yellow block */
+      background: rgba(255,255,255,0.95);
       color:#071826;
       font-weight:800;
-      padding:10px 14px;
+      padding:8px 12px;
       border-radius:999px;
       text-decoration:none;
       box-shadow: 0 8px 20px rgba(2,8,20,0.12);
-      border: 2px solid rgba(0,0,0,0.06);
+      border: 2px solid rgba(2,8,20,0.06);
       display:inline-block;
-      transform: translateY(6px);
+      transform: translateY(4px);
+      z-index:50;
+      pointer-events:auto;
     }
     @media (min-width:640px){
       .hoodie-cta{ right:40px; bottom:18px; padding:12px 18px; }
