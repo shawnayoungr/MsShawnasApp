@@ -1,0 +1,87 @@
+127.0.0.1 - - [04/Sep/2025 02:09:52] "HEAD /_assets/custom-welcome.css HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:10:14] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/images/hero-collage.png HTTP/1.1" 304 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/custom-welcome.css HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/images/itstime-badge.png HTTP/1.1" 304 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/images/students-group.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/images/phone-screen-2.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/images/phone-mockup.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/images/ms-shawna-headshot.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_online?1756951967649 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_assets/images/favicon.ico HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2025 02:12:47] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:12:47] "GET /_online?1756951968641 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:13:26] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:13:26] "GET /_online?1756952007641 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:13:29] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:13:29] "GET /_online?1756952010651 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:13:55] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:13:55] "GET /_online?1756952036647 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:14:10] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:14:10] "GET /_online?1756952051651 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:14:29] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:14:29] "GET /_online?1756952070639 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:14:37] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:14:37] "GET /_online?1756952078639 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:14:58] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:14:58] "GET /_online?1756952099640 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:15:09] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:15:09] "GET /_online?1756952110645 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:15:29] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:15:29] "GET /_online?1756952130638 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:15:30] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:15:30] "GET /_online?1756952131641 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:15:55] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:15:55] "GET /_online?1756952156638 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:16:14] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:16:14] "GET /_online?1756952175639 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:16:27] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:16:27] "GET /_online?1756952188639 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:16:41] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:16:41] "GET /_online?1756952202642 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:16:58] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:16:58] "GET /_online?1756952219651 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:17:04] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:17:04] "GET /_online?1756952225649 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:17:34] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:17:34] "GET /_online?1756952255649 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:17:34] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:17:34] "GET /_online?1756952255649 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:18:04] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:18:04] "GET /_online?1756952285637 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:18:06] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:18:06] "GET /_online?1756952287649 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:18:21] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:18:21] "GET /_online?1756952301988 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:18:25] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:18:25] "GET /_online?1756952306637 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:19:04] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:19:04] "GET /_online?1756952345645 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:19:20] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:19:20] "GET /_online?1756952361639 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:19:43] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:19:43] "GET /_online?1756952384649 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:20:14] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:20:14] "GET /_online?1756952415644 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:20:46] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:20:46] "GET /_online?1756952447640 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:21:30] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:21:30] "GET /_online?1756952491644 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:22:10] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:22:10] "GET /_online?1756952531645 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:22:42] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:22:42] "GET /_online?1756952563645 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:23:13] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:23:13] "GET /_online?1756952594648 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:23:56] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:23:56] "GET /_online?1756952637638 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:24:39] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:24:39] "GET /_online?1756952680644 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:25:24] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:25:24] "GET /_online?1756952725641 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:25:52] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:25:52] "GET /_online?1756952753534 HTTP/1.1" 404 -
+127.0.0.1 - - [04/Sep/2025 02:25:56] code 404, message File not found
+127.0.0.1 - - [04/Sep/2025 02:25:56] "GET /_online?1756952756916 HTTP/1.1" 404 -
