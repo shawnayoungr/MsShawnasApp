@@ -13,20 +13,20 @@
       border-radius:16px;
       padding:12px 12px;
       box-shadow: 0 10px 30px rgba(2,8,20,0.08);
-      /* wider box on mobile (full width minus gutters) */
-      width: calc(100% - 24px);
+      /* wider box on mobile (almost full width) */
+      width: calc(100% - 12px);
       box-sizing: border-box;
-      margin: -48px 12px 18px;
+      margin: -56px 6px 18px;
       -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
     }
-    .features{ list-style: disc; padding-left:20px; margin:0; color:#032b3a; font-size:16px; line-height:1.3; word-break: normal; hyphens: none; letter-spacing: -0.25px; }
-    .features li{ margin:6px 0; font-weight:800; }
+    .features{ list-style: disc; padding-left:20px; margin:0; color:#032b3a; font-size:16px; line-height:1.22; word-break: normal; hyphens: none; letter-spacing: -0.6px; word-spacing: -0.5px; overflow-wrap: normal; }
+    .features li{ margin:6px 0; font-weight:800; white-space: normal; }
     /* larger, darker list markers for emphasis */
     .features li::marker{ color:#024b5a; font-size:1.05em; }
     @media (min-width:640px){
-  .feature-box{ padding:18px 22px; border-radius:18px; max-width:920px; margin-left:auto; margin-right:auto; }
-  .features{ font-size:18.5px; }
+  .feature-box{ padding:18px 22px; border-radius:18px; max-width:1080px; margin-left:auto; margin-right:auto; }
+  .features{ font-size:18px; }
   .features li{ line-height:1.4; }
   .feature-box{ margin-top: -72px; }
     }
@@ -82,7 +82,7 @@
     <!-- top slice -->
     <div class="hero-wrapper">
       <img src="./_assets/images/setupasession_top.png" alt="Set Up A Session Top" class="hero-collage">
-      <a href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20want%20to%20book%20a%20paid%20session" class="hoodie-cta" aria-label="Book paid session">Book a paid session</a>
+  <a href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20want%20to%20book%20a%20paid%20session" class="hoodie-cta" aria-label="Book paid session" title="Book paid session" style="width:56px;height:56px;padding:0;display:block;border-radius:999px;background:transparent;border:none;">&nbsp;</a>
     </div>
 
     <!-- placeholder text using the Londrina utility (user will replace later) -->
