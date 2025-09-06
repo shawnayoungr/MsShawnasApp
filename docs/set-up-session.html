@@ -6,28 +6,29 @@
   <title>Set Up a Session  Ms. Shawna</title>
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
   <style>
-    /* Feature box: pulled-up gradient rounded box (mobile-first) */
+    /* Feature box: pulled-up, almost full-bleed (mobile-first) */
     .feature-box{
       /* gentle cool gradient similar to the design */
       background: linear-gradient(135deg, #e6fbff 0%, #d8f0ff 50%, #dbeafe 100%);
       border-radius:16px;
-      padding:12px 18px;
+      padding:14px 12px;
       box-shadow: 0 10px 30px rgba(2,8,20,0.08);
-      /* full width, no side margins so box aligns flush under hero text */
-      width: 100%;
+      /* nearly full-bleed with minimal gutters so text has room */
+      width: calc(100% - 16px);
       box-sizing: border-box;
-      margin: -72px 0 18px;
+      margin: -84px 8px 18px; /* pull up and leave small left/right gutters */
       -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
-      overflow-x: auto; /* allow horizontal scroll if needed on small devices */
-      -webkit-overflow-scrolling: touch;
+      overflow-x: visible; /* don't force horizontal scroll */
     }
-    .features{ list-style: disc; padding-left:22px; margin:0; color:#032b3a; font-size:16px; line-height:1.18; hyphens: none; overflow-wrap: normal; }
-    .features li{ margin:6px 0; font-weight:800; white-space:nowrap; letter-spacing: -1px; word-spacing: -1px; }
+    /* responsive font sizing so long items fit without scrolling on most phones */
+    .features{ list-style: disc; padding-left:22px; margin:0; color:#032b3a; font-size:clamp(14px,4.6vw,18px); line-height:1.25; hyphens: none; overflow-wrap:break-word; }
+    /* allow normal wrapping, remove forced letter-spacing/kerning */
+    .features li{ margin:6px 0; font-weight:800; white-space:normal; letter-spacing:0; word-spacing:0; }
     /* larger, darker list markers for emphasis */
     .features li::marker{ color:#024b5a; font-size:1.05em; }
     @media (min-width:640px){
-  .feature-box{ padding:18px 24px; border-radius:18px; max-width:1200px; margin-left:auto; margin-right:auto; }
+  .feature-box{ padding:18px 24px; border-radius:18px; max-width:1200px; width: calc(100% - 40px); margin-left:20px; margin-right:20px; }
   .features{ font-size:18px; }
   .features li{ line-height:1.4; }
   .feature-box{ margin-top: -72px; }
