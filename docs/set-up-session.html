@@ -7,14 +7,14 @@
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
   <style>
     /* Feature box: pulled-up gradient rounded box (mobile-first) */
-    .feature-box{
+  .feature-box{
       /* gentle cool gradient similar to the design */
       background: linear-gradient(135deg, #e6fbff 0%, #d8f0ff 50%, #dbeafe 100%);
       border-radius:16px;
       padding:12px 14px;
       box-shadow: 0 10px 30px rgba(2,8,20,0.08);
-      /* pull the box up so it sits under the bottom of the hero image */
-      margin: -34px 12px 18px;
+  /* pull the box up so it sits under the bottom of the hero image (tighter) */
+  margin: -54px 10px 18px;
       -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
     }
@@ -26,7 +26,30 @@
       .feature-box{ padding:18px 22px; border-radius:18px; max-width:820px; margin-left:auto; margin-right:auto; }
       .features{ font-size:19px; }
       .features li{ line-height:1.4; }
-      .feature-box{ margin-top: -48px; }
+      .feature-box{ margin-top: -72px; }
+    }
+
+    /* hero wrapper needs relative positioning for overlays */
+    .hero-wrapper{ position: relative; }
+
+    /* CTA on the student in the black hoodie (top image) */
+    .hoodie-cta{
+      position: absolute;
+      right: 16px;
+      bottom: 6px;
+      background: linear-gradient(90deg,#fff35d 0%, #ffd24a 100%);
+      color:#071826;
+      font-weight:800;
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      box-shadow: 0 8px 20px rgba(2,8,20,0.12);
+      border: 2px solid rgba(0,0,0,0.06);
+      display:inline-block;
+      transform: translateY(6px);
+    }
+    @media (min-width:640px){
+      .hoodie-cta{ right:40px; bottom:18px; padding:12px 18px; }
     }
   </style>
 </head>
@@ -34,10 +57,10 @@
   <header class="top-nav">
     <div class="nav-inner">
       <div class="brand" aria-hidden="true">&nbsp;</div>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">0</button>
+  <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">☰</button>
     </div>
     <nav class="offcanvas" id="site-menu" aria-hidden="true">
-      <button id="menu-close" class="menu-close" aria-label="Close menu">5</button>
+  <button id="menu-close" class="menu-close" aria-label="Close menu">✕</button>
       <ul class="menu-list">
         <li><a href="index.html">Welcome</a></li>
         <li><a href="student.html">For Students</a></li>
@@ -53,6 +76,7 @@
     <!-- top slice -->
     <div class="hero-wrapper">
       <img src="./_assets/images/setupasession_top.png" alt="Set Up A Session Top" class="hero-collage">
+      <a href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20want%20to%20book%20a%20paid%20session" class="hoodie-cta" aria-label="Book paid session">Book a paid session</a>
     </div>
 
     <!-- placeholder text using the Londrina utility (user will replace later) -->
