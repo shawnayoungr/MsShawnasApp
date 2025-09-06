@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+.env
+# Ignore local logs and screenshots accidentally committed
+/docs/*.log
+Screenshot*.png
