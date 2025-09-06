@@ -11,21 +11,23 @@
       /* gentle cool gradient similar to the design */
       background: linear-gradient(135deg, #e6fbff 0%, #d8f0ff 50%, #dbeafe 100%);
       border-radius:16px;
-      padding:12px 12px;
+      padding:12px 18px;
       box-shadow: 0 10px 30px rgba(2,8,20,0.08);
-      /* wider box on mobile (almost full width) */
-      width: calc(100% - 12px);
+      /* full width, no side margins so box aligns flush under hero text */
+      width: 100%;
       box-sizing: border-box;
-      margin: -56px 6px 18px;
+      margin: -72px 0 18px;
       -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
+      overflow-x: auto; /* allow horizontal scroll if needed on small devices */
+      -webkit-overflow-scrolling: touch;
     }
-    .features{ list-style: disc; padding-left:20px; margin:0; color:#032b3a; font-size:16px; line-height:1.22; word-break: normal; hyphens: none; letter-spacing: -0.6px; word-spacing: -0.5px; overflow-wrap: normal; }
-    .features li{ margin:6px 0; font-weight:800; white-space: normal; }
+    .features{ list-style: disc; padding-left:22px; margin:0; color:#032b3a; font-size:16px; line-height:1.18; hyphens: none; overflow-wrap: normal; }
+    .features li{ margin:6px 0; font-weight:800; white-space:nowrap; letter-spacing: -1px; word-spacing: -1px; }
     /* larger, darker list markers for emphasis */
     .features li::marker{ color:#024b5a; font-size:1.05em; }
     @media (min-width:640px){
-  .feature-box{ padding:18px 22px; border-radius:18px; max-width:1080px; margin-left:auto; margin-right:auto; }
+  .feature-box{ padding:18px 24px; border-radius:18px; max-width:1200px; margin-left:auto; margin-right:auto; }
   .features{ font-size:18px; }
   .features li{ line-height:1.4; }
   .feature-box{ margin-top: -72px; }
