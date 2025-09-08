@@ -7,6 +7,75 @@
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
 </head>
 <body>
+  <header class="top-nav">
+    <div class="nav-inner">
+      <div class="brand" aria-hidden="true">&nbsp;</div>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu">☰</button>
+    </div>
+    <nav class="offcanvas" id="site-menu" aria-hidden="true">
+      <button id="menu-close" class="menu-close" aria-label="Close menu">✕</button>
+      <ul class="menu-list">
+  <li><a href="index.html">Welcome</a></li>
+  <li><a href="student.html">For Students</a></li>
+  <li><a href="parent.html">What Parents Need to Know</a></li>
+  <li><a href="who-is-ms.html">Who is Ms. Shawna</a></li>
+  <li><a href="set-up-session.html">Set Up a Session</a></li>
+  <li><a href="why-pay.html">Why Pay?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <!-- Top image for "Who is Ms." with SMS overlay placed over the "Text Ms. Shawna" copy in the image -->
+    <div class="hero-wrapper">
+      <img src="./_assets/images/whois_top.png" alt="Who is Ms. Shawna - Top" class="hero-collage">
+      <!-- Place the accessible SMS overlay over the phone/text area on the top artwork -->
+      <a class="phone-overlay" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services.%20My%20name%20is" aria-label="Text Ms. Shawna" title="Text Ms. Shawna"></a>
+      <a class="click-overlay" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services.%20My%20name%20is" aria-label="Click here to text" title="Click here to text"></a>
+    </div>
+
+    <!-- Bottom/content image for the Who Is Ms page -->
+    <img src="./_assets/images/whois_bottom.png" alt="Who is Ms. Shawna - Bottom" class="hero-collage">
+  </section>
+
+  <main class="page-root">
+    <div class="cta-area">
+      <a class="btn-primary sms-cta" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services.%20My%20name%20is">Text Ms. Shawna</a>
+
+      <div class="script-cta">Free 15-minute consultation</div>
+      <a class="phone-pill" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services.%20My%20name%20is">(682) 268-0063</a>
+    </div>
+  </main>
+
+  <footer style="padding:18px 12px;text-align:center;color:#666;font-size:13px">
+    <div class="footer-copy kalam-regular">Helping students & parents navigate the college admissions process</div>
+  </footer>
+
+  <script>
+    // off-canvas menu behavior (same as other pages)
+    (function(){
+      const toggle = document.getElementById('menu-toggle');
+      const close = document.getElementById('menu-close');
+      const menu = document.getElementById('site-menu');
+      if(toggle && menu){
+        toggle.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','false')});
+      }
+      if(close && menu){
+        close.addEventListener('click', ()=>{menu.setAttribute('aria-hidden','true')});
+      }
+    })();
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Who is Ms. Shawna — Ms. Shawna</title>
+  <link rel="stylesheet" href="./_assets/custom-welcome.css">
+</head>
+<body>
   <main class="page-root">
     <h1 style="text-align:center;margin-top:80px">Who is Ms. Shawna</h1>
     <p style="max-width:600px;margin:20px auto;padding:0 14px;">Placeholder biographical page. Replace with Ms. Shawna's bio and credentials.</p>
