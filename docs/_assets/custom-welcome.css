@@ -158,6 +158,16 @@ img { background: transparent !important; }
   .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
   .hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
 
+/* Page heading that sits above the student/parent role buttons */
+.hero-heading{
+  text-align:center;
+  margin:18px 12px 8px 12px;
+  font-size:20px;
+  line-height:1.1;
+  color:#111;
+}
+.hero-heading.londrina-solid-regular{font-weight:400}
+
   /* Setup page CTA overlay (placed on the bottom image's lime pill) */
   .setup-cta-overlay{
     position:absolute;
@@ -272,6 +282,7 @@ img { background: transparent !important; }
 @media(min-width:700px){
   .page-root{max-width:720px}
   .hero-name{font-size:44px}
+  .hero-heading{font-size:28px;margin-top:22px}
 }
 
 /* small adjustments for very small screens */
