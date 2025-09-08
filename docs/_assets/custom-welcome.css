@@ -162,12 +162,13 @@ img { background: transparent !important; }
 .hero-heading{
   display:block;
   box-sizing:border-box; /* keep padding confined to heading only */
-  max-width:92%;
-  /* on mobile leave extra room on the right so the fixed menu button won't overlap */
-  width: calc(100% - 92px);
+  max-width: calc(100% - 28px);
+  /* keep full-flow width but reserve inner right padding so the fixed menu doesn't overlap text */
+  width: 100%;
   /* push the heading lower so it doesn't collide with the fixed top-nav */
   margin:28px auto 14px auto;
-  padding:14px 16px; /* slightly larger touch target and visually centered */
+  padding:14px 16px 14px 16px; /* slightly larger touch target and visually centered */
+  padding-right:72px; /* reserve space for the fixed menu button on mobile */
   text-align:center;
   background: rgba(255,255,255,0.95);
   color: #0b1726; /* deep charcoal for best contrast */
@@ -198,8 +199,8 @@ img { background: transparent !important; }
 }
 @media(min-width:700px){
   .sora-heading{font-size:30px}
-  /* on larger screens give the heading more width and slightly looser spacing */
-  .hero-heading{width: calc(100% - 40px); margin-top:22px; letter-spacing: -0.4px}
+  /* reduce reserved right padding on larger screens where menu is smaller relative to layout */
+  .hero-heading{width: calc(100% - 40px); margin-top:22px; letter-spacing: -0.4px; padding-right:40px}
 }
 
   /* Setup page CTA overlay (placed on the bottom image's lime pill) */
