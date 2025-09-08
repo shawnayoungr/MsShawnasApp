@@ -163,8 +163,10 @@ img { background: transparent !important; }
   display:block;
   box-sizing:border-box; /* keep padding confined to heading only */
   max-width:92%;
-  width: calc(100% - 28px); /* account for small internal padding without shifting layout */
-  margin:12px auto 14px auto;
+  /* on mobile leave extra room on the right so the fixed menu button won't overlap */
+  width: calc(100% - 92px);
+  /* push the heading lower so it doesn't collide with the fixed top-nav */
+  margin:28px auto 14px auto;
   padding:14px 16px; /* slightly larger touch target and visually centered */
   text-align:center;
   background: rgba(255,255,255,0.95);
@@ -173,7 +175,8 @@ img { background: transparent !important; }
   box-shadow: 0 10px 30px rgba(15,23,42,0.12);
   font-size:20px;
   line-height:1.08;
-  letter-spacing: -0.2px;
+  /* tighten characters so the menu overlap illusion is reduced */
+  letter-spacing: -0.6px;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   word-break:break-word;
@@ -181,10 +184,22 @@ img { background: transparent !important; }
 .hero-heading.rubik-distressed-regular{font-weight:400}
 
 /* Sora display utility for mobile-friendly headings (scoped) */
-.sora-heading{font-family: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; font-weight:700}
-.sora-heading{font-size:20px}
+.sora-heading{
+  font-family: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight:700;
+  font-size:20px;
+  line-height:1.05;
+  letter-spacing: -0.2px;
+  /* ensure no outline/shadow from other utilities or older fonts */
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  -moz-text-stroke: 0 !important;
+  -webkit-font-smoothing:antialiased;
+}
 @media(min-width:700px){
   .sora-heading{font-size:30px}
+  /* on larger screens give the heading more width and slightly looser spacing */
+  .hero-heading{width: calc(100% - 40px); margin-top:22px; letter-spacing: -0.4px}
 }
 
   /* Setup page CTA overlay (placed on the bottom image's lime pill) */
