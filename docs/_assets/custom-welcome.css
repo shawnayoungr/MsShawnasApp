@@ -158,15 +158,27 @@ img { background: transparent !important; }
   .hero-name{font-family:'Poppins',sans-serif;font-weight:800;color:var(--accent-blue);font-size:34px;margin:6px 0}
   .hero-sub{font-weight:300;color:var(--muted-blue);font-size:15px;margin:0}
 
-/* Page heading that sits above the student/parent role buttons */
+/* Modern mobile-first hero heading that sits above the student/parent role buttons */
 .hero-heading{
+  display:block;
+  box-sizing:border-box; /* keep padding confined to heading only */
+  max-width:92%;
+  width: calc(100% - 28px); /* account for small internal padding without shifting layout */
+  margin:12px auto 14px auto;
+  padding:14px 16px; /* slightly larger touch target and visually centered */
   text-align:center;
-  margin:18px 12px 8px 12px;
+  background: rgba(255,255,255,0.95);
+  color: #0b1726; /* deep charcoal for best contrast */
+  border-radius:14px;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.12);
   font-size:20px;
-  line-height:1.1;
-  color:#111;
+  line-height:1.08;
+  letter-spacing: -0.2px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  word-break:break-word;
 }
-.hero-heading.londrina-solid-regular{font-weight:400}
+.hero-heading.rubik-distressed-regular{font-weight:400}
 
   /* Setup page CTA overlay (placed on the bottom image's lime pill) */
   .setup-cta-overlay{
@@ -282,7 +294,7 @@ img { background: transparent !important; }
 @media(min-width:700px){
   .page-root{max-width:720px}
   .hero-name{font-size:44px}
-  .hero-heading{font-size:28px;margin-top:22px}
+  .hero-heading{font-size:28px;margin-top:22px;padding:16px 20px}
 }
 
 /* small adjustments for very small screens */
