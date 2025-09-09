@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Why Pay? — Ms. Shawna</title>
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
+  <style>
+    /* Minimal page: show the why-pay artwork full-bleed on mobile */
+    .why-pay-root{display:flex;align-items:flex-start;justify-content:center;background:#fff;padding:12px}
+    .why-pay-root img{max-width:100%;height:auto;display:block;border-radius:10px}
+    @media(min-width:700px){.why-pay-root{padding:24px}}
+  </style>
 </head>
 <body>
-  <main class="page-root">
-    <h1 style="text-align:center;margin-top:80px">Why Pay?</h1>
-    <p style="max-width:600px;margin:20px auto;padding:0 14px;">Placeholder explaining value proposition and fees.</p>
-    <p style="text-align:center"><a href="/">← Back</a></p>
-  </main>
+  <div class="why-pay-root">
+    <img src="./_assets/images/why-pay.png" alt="Why Pay" />
+  </div>
 </body>
 </html>

@@ -14,24 +14,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
   <style>
-    /* Titan One heading for the top hero — prominent pill with shadow */
-    .titan-one-regular { font-family: "Titan One", sans-serif; font-weight:400; font-style:normal; }
+    /* Titan One heading for the top hero — prominent, bold mobile-first heading */
+    .titan-one-regular { font-family: "Titan One", sans-serif; font-weight:700; font-style:normal; }
     .hero-heading.titan-one-regular{
-      display:inline-block;
-      background: #ffffff; /* white pill so the artwork behind remains consistent */
+      display:block;
+      background: transparent; /* remove pill box */
       color: #071233;
-      padding: 12px 18px;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(15,23,42,0.12);
-      font-size: 20px;
-      line-height:1.05;
+      padding: 0; /* remove pill padding */
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 34px; /* bigger on mobile */
+      line-height:1.02;
       text-align:center;
-      margin:18px auto;
-      max-width: calc(100% - 56px);
+      margin:12px auto 8px auto;
+      max-width: 92%;
       -webkit-font-smoothing:antialiased;
+      letter-spacing: -0.6px;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 18px rgba(0,0,0,0.06);
+    }
+    /* Slightly larger on small tablets/large phones */
+    @media(min-width:420px){
+      .hero-heading.titan-one-regular{font-size:40px}
     }
     @media(min-width:700px){
-      .hero-heading.titan-one-regular{font-size:30px;padding:16px 22px}
+      .hero-heading.titan-one-regular{font-size:48px}
     }
   </style>
 </head>
@@ -56,7 +62,7 @@
 
   <section>
     <!-- Sliced hero images placed directly so CSS hooks don't interfere -->
-  <h1 class="hero-heading titan-one-regular">Helping students & parents navigate the college admissions process</h1>
+  <h1 class="hero-heading titan-one-regular">Helping students<br>&amp; parents navigate the college admissions process</h1>
   <a href="student.html" aria-label="I am a student - learn more">
       <img src="./_assets/images/welcomestudent.png" alt="I'm a Student" class="hero-collage">
     </a>
@@ -71,11 +77,7 @@
     </div>
   </section>
 
-  
 
-  <footer style="padding:18px 12px;text-align:center;color:#666;font-size:13px">
-    <div class="footer-copy kalam-regular">Helping students & parents navigate the college admissions process</div>
-  </footer>
 
   <script>
     // small enhancement: make header roles keyboard accessible
