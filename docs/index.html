@@ -11,7 +11,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bevan&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
+  <style>
+    /* Titan One heading for the top hero — prominent pill with shadow */
+    .titan-one-regular { font-family: "Titan One", sans-serif; font-weight:400; font-style:normal; }
+    .hero-heading.titan-one-regular{
+      display:inline-block;
+      background: #ffffff; /* white pill so the artwork behind remains consistent */
+      color: #071233;
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+      font-size: 20px;
+      line-height:1.05;
+      text-align:center;
+      margin:18px auto;
+      max-width: calc(100% - 56px);
+      -webkit-font-smoothing:antialiased;
+    }
+    @media(min-width:700px){
+      .hero-heading.titan-one-regular{font-size:30px;padding:16px 22px}
+    }
+  </style>
 </head>
 <body>
   <header class="top-nav">
@@ -34,7 +56,7 @@
 
   <section>
     <!-- Sliced hero images placed directly so CSS hooks don't interfere -->
-  <h1 class="hero-heading sora-heading">Helping students & parents navigate the college admissions process</h1>
+  <h1 class="hero-heading titan-one-regular">Helping students & parents navigate the college admissions process</h1>
   <a href="student.html" aria-label="I am a student - learn more">
       <img src="./_assets/images/welcomestudent.png" alt="I'm a Student" class="hero-collage">
     </a>
