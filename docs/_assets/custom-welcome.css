@@ -37,28 +37,12 @@ img { background: transparent !important; }
 .role-student{color:var(--accent-blue)}
 .role-parent{color:var(--coral)}
 
-  /* simplified hero: images are placed directly in the page to avoid layout issues */
-  .hero-collage{width:100%;height:auto;display:block;margin:0;padding:0;border-radius:0;box-shadow:none;position:relative}
+  /* simplified hero: images are placed directly in the page (no positional
+    tricks). Keep images simple so page markup controls flow and stacking. */
+  .hero-collage{width:100%;height:auto;display:block;margin:0;padding:0;border-radius:0;box-shadow:none}
 
-  /* Keep the middle hero slightly separated and stacked behind the student/parent slices
-    to avoid visual double-shadows caused by image overlap. Using position + z-index
-    ensures the visible top edges and shadows of the parent/student images are not
-    covered by the mid slice. */
-  /* non-mid slices should sit above the mid slice so their shadows remain visible
-    while the mid slice is tucked underneath. Increase z-index for clarity. */
-  .hero-collage:not(.hero-mid){z-index:3;position:relative}
-
-  /* Move the middle image up so it tucks under the parent/student slice.
-    The shadow is baked into the PNG; we hide the duplicated shadow portion by
-    (1) shifting the mid image further up with a larger negative margin so it
-    sits underneath, and (2) clipping off the top few pixels of the mid image
-    so the baked-in shadow doesn't show. Tweak the inset and margin values as
-    needed for your exact slices. */
-  .hero-mid{display:block;margin-top:-34px;position:relative;z-index:1;/* tuck under */
-            /* hide the top 18px of the mid image (adjust if needed) */
-            -webkit-clip-path: inset(18px 0 0 0);
-            clip-path: inset(18px 0 0 0);
-            }
+  /* Leave hero-mid unshifted — the HTML slices should control stacking if needed */
+  .hero-mid{display:block;margin-top:0;position:static;z-index:1}
 
 /* Mobile-first overrides: tighten spacing and adjust overlap for narrow viewports */
 @media (max-width:420px){
