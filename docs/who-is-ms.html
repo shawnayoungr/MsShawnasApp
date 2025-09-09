@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Who is Ms. Shawna — Ms. Shawna</title>
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
+  <style>
+    /* Page-scoped adjustments for who-is-ms only (mobile-first) */
+    body.whois-page{padding-top:56px;}
+    body.whois-page .hero-collage{display:block;width:100%;height:auto;object-fit:contain}
+    /* reserve extra space on the right for fixed menu on narrow screens */
+    body.whois-page .hero-wrapper{padding-right:16px}
+    /* hide other page chrome that was added on other pages (keep nav only) */
+    body.whois-page .page-root, body.whois-page .cta-area, body.whois-page .phone-pill, body.whois-page .script-cta, body.whois-page footer{display:none !important}
+  </style>
 </head>
-<body>
+<body class="whois-page">
   <header class="top-nav">
     <div class="nav-inner">
       <div class="brand" aria-hidden="true">&nbsp;</div>
@@ -34,8 +43,12 @@
       <a class="click-overlay" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services.%20My%20name%20is" aria-label="Click here to text" title="Click here to text"></a>
     </div>
 
-    <!-- Bottom/content image for the Who Is Ms page -->
-    <img src="./_assets/images/whois_bottom.png" alt="Who is Ms. Shawna - Bottom" class="hero-collage">
+    <!-- Bottom/content image for the Who Is Ms page with a click-overlay on the 'Click here' artwork -->
+    <div class="hero-wrapper" style="position:relative;">
+      <img src="./_assets/images/whois_bottom.png" alt="Who is Ms. Shawna - Bottom" class="hero-collage">
+      <!-- Page-scoped overlay: positioned to cover the 'Click here' circle in the bottom artwork. Adjust left/top/width/height if needed. -->
+      <a class="click-overlay" href="sms:+16822680063?body=Hi%20Ms.%20Shawna%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services.%20My%20name%20is" aria-label="Click here to text Ms. Shawna" title="Click here to text Ms. Shawna" style="left:6%;top:22%;width:24%;height:20%;"></a>
+    </div>
   </section>
 
   <script>
