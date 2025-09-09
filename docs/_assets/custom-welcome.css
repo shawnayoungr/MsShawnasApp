@@ -348,3 +348,28 @@ img { background: transparent !important; }
   .offcanvas{width:72vw}
 }
 
+/* Mobile-first touch improvements */
+a, button, .menu-toggle, .phone-overlay, .click-overlay, .index-pill-overlay, .parent-cta-overlay, .setup-cta-overlay {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.06);
+  touch-action: manipulation; /* preferred for single-tap interactions */
+}
+
+/* Increased minimum tap target for links/buttons on mobile */
+@media (max-width:700px){
+  a, button, .menu-toggle, .menu-list a { min-height:44px; display:inline-flex; align-items:center; }
+  .menu-list a{padding:10px 6px}
+}
+
+/* Make overlays clearly hit-targets and support focus */
+.phone-overlay, .click-overlay, .index-pill-overlay, .parent-cta-overlay, .setup-cta-overlay {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.06);
+  touch-action: manipulation;
+}
+
+/* Visible focus outline for accessibility when navigating by keyboard or assistive tech */
+a:focus, button:focus, .menu-toggle:focus { outline: 3px solid rgba(30,91,255,0.16); outline-offset:2px }
+
+/* Prevent accidental double-tap zoom on iOS for interactive elements */
+html, body { -webkit-touch-callout: none; }
+
+
