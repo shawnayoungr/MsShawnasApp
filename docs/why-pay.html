@@ -11,15 +11,15 @@
     .why-pay-root{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;background:#fff;padding:12px}
     .why-pay-art{width:100%;max-width:420px;overflow:hidden;border-radius:10px}
     .why-pay-art img{display:block;width:100%;height:auto}
-    /* clip the bottom of the artwork so the image copy of the list is hidden */
-    @media(max-width:420px){
-      .why-pay-art img{ -webkit-clip-path: inset(0 0 44% 0); clip-path: inset(0 0 44% 0); }
-    }
+   /* clip the bottom of the artwork so the image copy of the list is hidden.
+     Apply at all sizes for consistency across devices. Increase inset to hide
+     the printed bullets reliably. */
+   .why-pay-art img{ -webkit-clip-path: inset(0 0 48% 0); clip-path: inset(0 0 48% 0); }
 
     /* the recreated list box */
     .why-pay-box{width:100%;max-width:420px;background:#fff;padding:14px 16px;border-radius:12px;margin-top:14px;box-shadow:0 10px 20px rgba(0,0,0,0.08)}
     .why-pay-box ul{list-style:disc;margin:0;padding:0 0 0 18px}
-    .why-pay-box li{font-family:'Kalam',cursive;font-weight:400;font-size:16px;line-height:1.35;color:#111;margin:8px 0;letter-spacing:-0.3px}
+  .why-pay-box li{font-family:'Kalam',cursive;font-weight:700;font-size:16px;line-height:1.35;color:#111;margin:8px 0;letter-spacing:-0.3px}
     @media(min-width:420px){.why-pay-box li{font-size:18px;line-height:1.4}}
     @media(min-width:700px){.why-pay-root{padding:24px}.why-pay-box{max-width:720px}}
   </style>
