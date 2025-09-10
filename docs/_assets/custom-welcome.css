@@ -60,6 +60,13 @@ img { background: transparent !important; }
 /* Hero wrapper to allow clickable overlay on top of the phone artwork */
 .hero-wrapper{position:relative;display:block}
 
+/*
+  Frame to shift a hero slice and all of its absolutely-positioned overlays together.
+  Use the utility class `shift-up` to nudge the entire frame without changing overlay coords.
+*/
+.hero-frame{position:relative;display:block;overflow:visible}
+.hero-frame.shift-up{transform:translateY(-70px);transition:transform 160ms ease}
+
 /* phone overlay: by default full-width/height of the phone's approximate area.
    mobile-first: place the clickable area where the phone appears in the image. */
 .phone-overlay{position:absolute;left:10%;top:40%;width:32%;height:28%;display:block;z-index:10}
@@ -101,38 +108,7 @@ img { background: transparent !important; }
   transition:box-shadow 120ms ease, transform 120ms ease;
 }
 
-/* Simple CSS speech-bubble so we can overlay editable text on top of artwork.
-   Use the HTML element content to change the text. Positioning is controlled
-   inline on the element for pixel-perfect placement per page/image. */
-.speech-bubble-overlay{
-  position:absolute;
-  z-index:95;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 14px;
-  min-width:110px;
-  color:#1b1b1b;
-  font-weight:800;
-  text-align:center;
-  background: linear-gradient(180deg,#ff9d3b 0%, #ff7a00 100%);
-  border-radius:18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-  -webkit-touch-callout: none;
-}
-.speech-bubble-overlay:after{
-  content:'';
-  position:absolute;
-  bottom:-12px;
-  right:18px;
-  width:0;height:0;
-  border-left:10px solid transparent;
-  border-right:10px solid transparent;
-  border-top:12px solid rgba(255,122,0,0.98);
-}
-
-/* debug helper: add .debug-border to see outlines while adjusting */
-.speech-bubble-overlay.debug-border{outline:2px dashed rgba(0,0,0,0.12)}
+/* speech bubble overlay removed — was used as a temporary editable overlay */
 .parent-cta-overlay:hover,
 .parent-cta-overlay:focus{
   box-shadow:0 8px 18px rgba(32,33,36,0.18);
