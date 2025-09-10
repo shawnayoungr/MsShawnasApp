@@ -49,7 +49,7 @@ img { background: transparent !important; }
   .page-root{padding:0 8px}
   .hero-collage{border-radius:10px}
   /* increase overlap on tiny screens to fully hide the baked shadow */
-  .hero-mid{margin-top:-44px;-webkit-clip-path: inset(200px 0 0 0);clip-path: inset(200px 0 0 0);} 
+  .hero-mid{margin-top:-44px; -webkit-clip-path: none; clip-path: none;}
   .role{width:92%}
   .cta-area{margin-top:12px;gap:8px}
   .btn-primary{padding:10px 14px}
@@ -180,7 +180,9 @@ img { background: transparent !important; }
 /* Clip the top hero images slightly on small screens to hide baked-in shadows
    that overlap the mid slice. Apply only to the top PNGs (hero-top). */
 @media (max-width:420px){
-  .hero-top{display:block;-webkit-clip-path: inset(0 0 26px 0);clip-path: inset(0 0 26px 0);margin-bottom:-18px}
+  /* Using the cropped mid image directly; remove CSS clipping to avoid
+     cross-browser rendering differences on some Android devices. */
+  .hero-top{display:block; -webkit-clip-path: none; clip-path: none; margin-bottom:0}
 }
 
 /* Sora display utility for mobile-friendly headings (scoped) */
@@ -334,9 +336,10 @@ img { background: transparent !important; }
 /* Debug helper: apply to overlay anchors to visualize hit areas while tuning */
 .debug-visible{
   background: rgba(255,0,0,0.18) !important;
-  border: 2px solid rgba(255,0,0,0.28) !important;
-  box-shadow: 0 6px 18px rgba(255,0,0,0.06);
+  border: 2px solid rgba(255,0,0,0.32) !important;
+  box-shadow: 0 8px 22px rgba(255,0,0,0.10);
   border-radius: 999px; /* match common circular hotspots */
+  z-index: 200 !important; /* sit on top for visibility */
 }
 
 /* Top-right off-canvas menu (hamburger) */
