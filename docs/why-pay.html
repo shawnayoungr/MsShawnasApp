@@ -16,10 +16,15 @@
      the printed bullets reliably. */
    .why-pay-art img{ -webkit-clip-path: inset(0 0 48% 0); clip-path: inset(0 0 48% 0); }
 
-    /* the recreated list box */
-    .why-pay-box{width:100%;max-width:420px;background:#fff;padding:14px 16px;border-radius:12px;margin-top:14px;box-shadow:0 10px 20px rgba(0,0,0,0.08)}
+    /* the recreated list box — match the set-up-session feature box but slightly lighter */
+    .why-pay-box{
+      width:100%;max-width:420px;padding:14px 16px;border-radius:14px;margin-top:14px;
+      background: linear-gradient(135deg, #f8feff 0%, #eef9ff 55%, #f3fbff 100%);
+      box-shadow: 0 10px 26px rgba(2,8,20,0.06);
+      border: 1px solid rgba(2,8,20,0.04);
+    }
     .why-pay-box ul{list-style:disc;margin:0;padding:0 0 0 18px}
-  .why-pay-box li{font-family:'Kalam',cursive;font-weight:700;font-size:16px;line-height:1.35;color:#111;margin:8px 0;letter-spacing:-0.3px}
+    .why-pay-box li{font-family:'Kalam',cursive;font-weight:700;font-size:16px;line-height:1.35;color:#071826;margin:8px 0;letter-spacing:-0.3px}
     @media(min-width:420px){.why-pay-box li{font-size:18px;line-height:1.4}}
     @media(min-width:700px){.why-pay-root{padding:24px}.why-pay-box{max-width:720px}}
   </style>
