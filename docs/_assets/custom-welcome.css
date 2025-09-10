@@ -325,6 +325,14 @@ img { background: transparent !important; }
 /* Make overlays visible during development by uncommenting the background rule below */
 /* .overlay{background:rgba(255,0,0,0.12);} */
 
+/* Debug helper: apply to overlay anchors to visualize hit areas while tuning */
+.debug-visible{
+  background: rgba(255,0,0,0.18) !important;
+  border: 2px solid rgba(255,0,0,0.28) !important;
+  box-shadow: 0 6px 18px rgba(255,0,0,0.06);
+  border-radius: 999px; /* match common circular hotspots */
+}
+
 /* Top-right off-canvas menu (hamburger) */
 .top-nav{position:fixed;top:8px;right:8px;z-index:60}
 .nav-inner{display:flex;align-items:center;gap:8px}
