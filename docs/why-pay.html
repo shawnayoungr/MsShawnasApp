@@ -14,7 +14,8 @@
    /* clip the bottom of the artwork so the image copy of the list is hidden.
      Apply at all sizes for consistency across devices. Increase inset to hide
      the printed bullets reliably. */
-   .why-pay-art img{ -webkit-clip-path: inset(0 0 48% 0); clip-path: inset(0 0 48% 0); }
+  /* artwork is cropped on disk; avoid CSS clipping to prevent double-cropping */
+  .why-pay-art img{ /* no clip-path here; use cropped source image */ display:block;width:100%;height:auto }
 
     /* the recreated list box — match the set-up-session feature box but slightly lighter */
     .why-pay-box{
@@ -24,7 +25,7 @@
       border: 1px solid rgba(2,8,20,0.04);
     }
     .why-pay-box ul{list-style:disc;margin:0;padding:0 0 0 18px}
-    .why-pay-box li{font-family:'Kalam',cursive;font-weight:700;font-size:16px;line-height:1.35;color:#071826;margin:8px 0;letter-spacing:-0.3px}
+  .why-pay-box li{font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700;font-size:16px;line-height:1.35;color:#071826;margin:8px 0;letter-spacing:-0.3px}
     @media(min-width:420px){.why-pay-box li{font-size:18px;line-height:1.4}}
     @media(min-width:700px){.why-pay-root{padding:24px}.why-pay-box{max-width:720px}}
   </style>
@@ -56,14 +57,11 @@
     <div class="why-pay-box" role="region" aria-label="Why pay details">
       <ul>
         <li>I hold a master's degree in social work from UTA in Arlington</li>
-        <li>I am a Licensed Master Social Worker</li>
-        <li>I follow the ethical guidelines governed by NASW</li>
+        <li>I am a Licensed Master Social Worker in the Stare of Texas</li>
+        
         <li>My fingerprints are registered with the State of Texas</li>
         <li>My background check is clear to work in public schools</li>
-        <li>I have been a college advisor in Crowley for over 3 years</li>
-        <li>Google Voice and Google Meet will be used during sessions</li>
-        <li>Texts are tracked and saved</li>
-        <li>Shared texts and images can be recalled at any time</li>
+        <li>I have been a college advisor in Crowley for the past 4 years</li>
         <li>Student and parent info will not be shared or sold</li>
         <li>All material and info is age-appropriate and educational</li>
         <li>Texts are restricted to business hours</li>
