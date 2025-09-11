@@ -43,7 +43,7 @@
 
     /* Mobile-first oval gradient speech bubbles */
     .cost-bubbles{display:flex;flex-direction:column;gap:10px;align-items:center;margin:8px auto 18px auto}
-  .cost-bubble{width:100%;max-width:360px;border:0;padding:14px 18px;border-radius:999px;color:#081221;font-weight:800;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:15px;text-align:center;box-shadow:0 12px 30px rgba(12,18,25,0.18);position:relative;overflow:visible}
+  .cost-bubble{--bubble-radius:999px;width:100%;max-width:360px;border:0;padding:14px 18px;border-radius:calc(var(--bubble-radius) * 0.9);color:#081221;font-weight:800;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:15px;text-align:center;box-shadow:0 12px 30px rgba(12,18,25,0.18);position:relative;overflow:visible}
   /* per-bubble gradients */
   .cost-bubble.bubble-1{background:linear-gradient(145deg,#ff7b88 0%,#ff4d6d 60%);color:#fff} /* deeper rose -> coral */
   .cost-bubble.bubble-2{background:linear-gradient(145deg,#00b894 0%,#0077a3 60%);color:#fff} /* deeper mint -> teal */
@@ -102,7 +102,7 @@
 
       <div class="cost-bubbles" role="list">
         <button class="cost-bubble bubble-1" role="listitem">The same your last hair appointment.</button>
-        <button class="cost-bubble bubble-2" role="listitem">The same as a good resturant meal.</button>
+        <button class="cost-bubble bubble-2" role="listitem">The same as a good meal at a restaurant.</button>
         <button class="cost-bubble bubble-3" role="listitem">The same as those back-to-school shoes.</button>
       </div>
     </div>
