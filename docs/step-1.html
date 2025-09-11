@@ -50,7 +50,7 @@
 
   <main class="page-root">
     <div style="text-align:center;margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:12px;">
-      <h1 class="hero-heading titan-one-regular" style="margin:0;">Ready to Start</h1>
+      <h1 class="hero-heading titan-one-regular" style="margin:0;">Ready to Start?</h1>
       <!-- Speaker/play button (SVG) that plays the 10-items audio when clicked -->
       <button id="play-10" aria-label="Play 10 things to get started" style="background:transparent;border:0;cursor:pointer;padding:8px;border-radius:8px;">
         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,21 +73,50 @@
   </main>
   <script>
     (function(){
-      var btn=document.getElementById('play-10');
-      var audio=document.getElementById('audio-10');
+      var btn = document.getElementById('play-10');
+      var audio = document.getElementById('audio-10');
       if(!btn || !audio) return;
-      // Set playbackRate only after a user gesture (some browsers enforce this)
-      btn.addEventListener('click', function(e){
-        try{ audio.playbackRate = 1.15; }catch(err){}
-        if(audio.paused){
-          var p = audio.play();
-          if(p && p.then){
-            p.then(function(){ btn.setAttribute('aria-pressed','true'); }).catch(function(err){ console.warn('playback blocked',err); });
-          } else { btn.setAttribute('aria-pressed','true'); }
+
+      function setPlayingState(isPlaying){
+        btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+        // optional visual toggle (can be styled later)
+        btn.style.opacity = isPlaying ? '0.9' : '1';
+      }
+
+      function playWithFallback(){
+        try{ audio.playbackRate = 1.15; }catch(e){}
+        var p = audio.play();
+        if(p && p.then){
+          p.then(function(){ setPlayingState(true); }).catch(function(err){
+            console.warn('audio.play() rejected, trying fallback Audio():', err);
+            // fallback: create a new Audio() instance and attempt play (some browsers handle this gesture differently)
+            try{
+              var alt = new Audio(audio.src);
+              alt.playbackRate = 1.15;
+              alt.preload = 'auto';
+              var p2 = alt.play();
+              if(p2 && p2.then){
+                p2.then(function(){ setPlayingState(true); }).catch(function(err2){ console.warn('fallback play failed', err2); });
+              } else { setPlayingState(true); }
+            }catch(err3){ console.warn('fallback creation failed', err3); }
+          });
         } else {
-          audio.pause(); btn.setAttribute('aria-pressed','false');
+          setPlayingState(true);
         }
-      });
+      }
+
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        if(audio.paused){
+          playWithFallback();
+        } else {
+          audio.pause(); setPlayingState(false);
+          // also stop any fallback audio instances if needed (not tracked here)
+        }
+      }, {passive:false});
+
+      // ensure playbackRate is set after a user gesture as well
+      btn.addEventListener('touchend', function(e){ e.preventDefault(); }, {passive:false});
     })();
   </script>
 
