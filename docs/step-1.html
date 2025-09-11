@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Step 1 — Ms. Shawna</title>
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="top-nav">
@@ -27,9 +28,20 @@
   </header>
 
   <main class="page-root">
-    <h1 class="hero-heading titan-one-regular" style="text-align:center;margin-top:36px;">Ready to Start</h1>
+    <div style="text-align:center;margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+      <h1 class="hero-heading titan-one-regular" style="margin:0;">Ready to Start</h1>
+      <!-- Inline mic button (SVG) that plays the 10-items audio when clicked -->
+      <button id="play-10" aria-label="Play 10 things to get started" style="background:transparent;border:0;cursor:pointer;padding:8px;border-radius:8px;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="6" fill="#ffffff"/>
+          <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z" stroke="#071233" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 11v1a7 7 0 0 1-14 0v-1" stroke="#071233" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <audio id="audio-10" src="./_assets/media/ms_app10things.mp3" preload="auto"></audio>
     <div style="max-width:720px;margin:18px auto;padding:0 12px;font-family:'Helvetica Neue', Arial, sans-serif; font-weight:700; letter-spacing:-0.6px;">
-      <p style="font-size:16px;margin-bottom:8px;">Before you can start, check the following:</p>
+  <p style="font-size:16px;margin-bottom:8px;">Before you can start, check the following:</p>
       <ul style="padding-left:20px;margin:0 0 16px 0;">
         <li>Have your student's transcript or unofficial transcript available</li>
         <li>Know the list of colleges you want to apply to (even rough ideas)</li>
@@ -38,6 +50,18 @@
       <p style="color:#333;margin-top:8px;">When you're ready, tell me which items you have and I'll guide you through the next steps.</p>
     </div>
   </main>
+  <script>
+    (function(){
+      var btn=document.getElementById('play-10');
+      var audio=document.getElementById('audio-10');
+      if(!btn || !audio) return;
+      audio.playbackRate = 1.15; // slightly increased speed
+      btn.addEventListener('click', function(e){
+        if(audio.paused) { audio.currentTime=0; audio.play(); btn.setAttribute('aria-pressed','true'); }
+        else { audio.pause(); btn.setAttribute('aria-pressed','false'); }
+      });
+    })();
+  </script>
 
   <script>
     (function(){
