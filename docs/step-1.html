@@ -6,6 +6,27 @@
   <title>Step 1 — Ms. Shawna</title>
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
   <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+  <style>
+    /* Titan One heading for the top hero — match the welcome page hero heading */
+    .hero-heading.titan-one-regular{
+      display:block;
+      background: transparent;
+      color: #071233;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 22px;
+      line-height:1.02;
+      text-align:center;
+      margin:12px auto 8px auto;
+      max-width: 92%;
+      -webkit-font-smoothing:antialiased;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 18px rgba(0,0,0,0.06);
+    }
+    @media(min-width:420px){ .hero-heading.titan-one-regular{font-size:40px} }
+    @media(min-width:700px){ .hero-heading.titan-one-regular{font-size:48px} }
+  </style>
 </head>
 <body>
   <header class="top-nav">
@@ -30,12 +51,12 @@
   <main class="page-root">
     <div style="text-align:center;margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:12px;">
       <h1 class="hero-heading titan-one-regular" style="margin:0;">Ready to Start</h1>
-      <!-- Inline mic button (SVG) that plays the 10-items audio when clicked -->
+      <!-- Speaker/play button (SVG) that plays the 10-items audio when clicked -->
       <button id="play-10" aria-label="Play 10 things to get started" style="background:transparent;border:0;cursor:pointer;padding:8px;border-radius:8px;">
         <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="24" height="24" rx="6" fill="#ffffff"/>
-          <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z" stroke="#071233" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M19 11v1a7 7 0 0 1-14 0v-1" stroke="#071233" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 9v6h4l5 4V5L9 9H5z" fill="#071233"/>
+          <path d="M16.5 8.5c.9.9 1.5 2.1 1.5 3.5s-.6 2.6-1.5 3.5" stroke="#071233" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </div>
@@ -55,10 +76,17 @@
       var btn=document.getElementById('play-10');
       var audio=document.getElementById('audio-10');
       if(!btn || !audio) return;
-      audio.playbackRate = 1.15; // slightly increased speed
+      // Set playbackRate only after a user gesture (some browsers enforce this)
       btn.addEventListener('click', function(e){
-        if(audio.paused) { audio.currentTime=0; audio.play(); btn.setAttribute('aria-pressed','true'); }
-        else { audio.pause(); btn.setAttribute('aria-pressed','false'); }
+        try{ audio.playbackRate = 1.15; }catch(err){}
+        if(audio.paused){
+          var p = audio.play();
+          if(p && p.then){
+            p.then(function(){ btn.setAttribute('aria-pressed','true'); }).catch(function(err){ console.warn('playback blocked',err); });
+          } else { btn.setAttribute('aria-pressed','true'); }
+        } else {
+          audio.pause(); btn.setAttribute('aria-pressed','false');
+        }
       });
     })();
   </script>
