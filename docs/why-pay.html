@@ -44,6 +44,12 @@
     letter-spacing: -0.4px;
     line-height:1.05;
   }
+    /* prevent horizontal scroll from large hero images or accidental overflow */
+    html,body{ max-width:100%; overflow-x:hidden; }
+    .hero-wrapper{ box-sizing:border-box; max-width:100%; overflow:hidden }
+    .hero-collage{ display:block;width:100%;max-width:100%;height:auto }
+    /* use Titan One for the My Methods heading to match who-is-ms page when present */
+    .why-pay-box h3{ font-family: 'Titan One', sans-serif; font-weight:400; letter-spacing:-1px; }
   @media(min-width:420px){
     .why-pay-heading,.why-pay-box h3{font-size:22px}
   }

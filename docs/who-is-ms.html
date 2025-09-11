@@ -33,6 +33,13 @@
   .whois-page main{ max-width:420px; margin:0 auto; padding:0 12px 18px; box-sizing:border-box; }
   /* avoid accidental horizontal scroll on this page only */
   body.whois-page{ overflow-x:hidden; }
+  /* Additional safeguards to stop any hero artwork or overlays from causing page shifts */
+  html,body{ max-width:100%; }
+  .hero-wrapper{ box-sizing:border-box; max-width:100%; overflow:hidden; }
+  .hero-collage{ display:block; width:100%; max-width:100%; height:auto; }
+  nav.offcanvas{ box-sizing:border-box; }
+  /* Make the My Methods heading visually match the Titan One hero heading */
+  .why-pay-box h3{ font-family: 'Titan One', sans-serif; font-weight:400; font-size:22px; letter-spacing:-1px; text-align:center; margin-top:12px; }
   </style>
 </head>
 <body class="whois-page">
