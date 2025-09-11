@@ -29,6 +29,10 @@
     @media(min-width:420px){ .why-pay-box li{ font-size:18px; line-height:1.4 } }
     .why-pay-box h3{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:800; text-align:center; color:#071826; font-size:20px; margin:12px 0 6px; letter-spacing:-0.4px; line-height:1.05 }
     @media(min-width:420px){ .why-pay-box h3{ font-size:22px } }
+  /* Page container rules to match other pages and prevent horizontal shifting */
+  .whois-page main{ max-width:420px; margin:0 auto; padding:0 12px 18px; box-sizing:border-box; }
+  /* avoid accidental horizontal scroll on this page only */
+  body.whois-page{ overflow-x:hidden; }
   </style>
 </head>
 <body class="whois-page">
