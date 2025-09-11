@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Who is Ms. Shawna — Ms. Shawna</title>
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
+  <!-- Load Titan One to match index hero heading and Kalam if needed for box accents -->
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
   <style>
     /* Page-scoped adjustments for who-is-ms only (mobile-first) */
     body.whois-page{padding-top:56px;}
@@ -13,6 +15,20 @@
     body.whois-page .hero-wrapper{padding-right:16px}
     /* hide other page chrome that was added on other pages (keep nav only) */
     body.whois-page .page-root, body.whois-page .cta-area, body.whois-page .phone-pill, body.whois-page .script-cta, body.whois-page footer{display:none !important}
+  </style>
+  <!-- Scoped styles to make the inserted heading and why-pay box match their source pages -->
+  <style>
+    /* Titan One heading (copied from index page) */
+    .hero-heading.titan-one-regular{ font-family: 'Titan One', sans-serif; font-weight:400; font-style:normal; display:block; background: transparent; color: #071233; padding: 0; border-radius: 0; box-shadow: none; font-size: 22px; line-height:1.02; text-align:center; margin:12px auto 8px auto; max-width: 92%; -webkit-font-smoothing:antialiased; letter-spacing: -1px; text-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 18px rgba(0,0,0,0.06); }
+    @media(min-width:420px){ .hero-heading.titan-one-regular{font-size:40px} }
+
+    /* why-pay box typography to match the original who-pay styling (scoped only) */
+    .why-pay-box{ width:100%; max-width: min(720px, calc(100vw - 24px)); padding:14px 16px; border-radius:14px; margin-top:14px; background: linear-gradient(135deg, #f8feff 0%, #eef9ff 55%, #f3fbff 100%); box-shadow: 0 10px 26px rgba(2,8,20,0.06); border: 1px solid rgba(2,8,20,0.04); }
+    .why-pay-box ul{ list-style: disc; margin:0; padding:0 0 0 18px }
+    .why-pay-box li{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:16px; line-height:1.35; color:#071826; margin:8px 0; letter-spacing:-0.38px }
+    @media(min-width:420px){ .why-pay-box li{ font-size:18px; line-height:1.4 } }
+    .why-pay-box h3{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:800; text-align:center; color:#071826; font-size:20px; margin:12px 0 6px; letter-spacing:-0.4px; line-height:1.05 }
+    @media(min-width:420px){ .why-pay-box h3{ font-size:22px } }
   </style>
 </head>
 <body class="whois-page">
