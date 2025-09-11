@@ -9,7 +9,11 @@
   <style>
     /* Minimal page: show the why-pay artwork and overlay a real text list */
     .why-pay-root{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;background:#fff;padding:12px}
-    .why-pay-art{width:100%;max-width:420px;overflow:hidden;border-radius:10px}
+   /* allow the artwork to grow to most of the viewport on phones while
+     capping at a reasonable max on larger screens (mobile-first). Using
+     min()/calc() avoids a hard 420px clamp so the image can appear larger
+     on modern phones while remaining conservative for older Android devices. */
+   .why-pay-art{width:100%;max-width: min(720px, calc(100vw - 24px));overflow:hidden;border-radius:10px}
     .why-pay-art img{display:block;width:100%;height:auto}
    /* clip the bottom of the artwork so the image copy of the list is hidden.
      Apply at all sizes for consistency across devices. Increase inset to hide
@@ -19,7 +23,7 @@
 
     /* the recreated list box — match the set-up-session feature box but slightly lighter */
     .why-pay-box{
-      width:100%;max-width:420px;padding:14px 16px;border-radius:14px;margin-top:14px;
+      width:100%;max-width: min(720px, calc(100vw - 24px));padding:14px 16px;border-radius:14px;margin-top:14px;
       background: linear-gradient(135deg, #f8feff 0%, #eef9ff 55%, #f3fbff 100%);
       box-shadow: 0 10px 26px rgba(2,8,20,0.06);
       border: 1px solid rgba(2,8,20,0.04);
@@ -91,4 +95,30 @@
     </div>
   </div>
 <p> </p>
-    
+  <!-- Small script to make the hamburger off-canvas menu functional -->
+  <script>
+    (function(){
+      var toggle = document.getElementById('menu-toggle');
+      var closeBtn = document.getElementById('menu-close');
+      var menu = document.getElementById('site-menu');
+      if(!toggle || !menu) return;
+      function openMenu(){
+        menu.setAttribute('aria-hidden','false');
+        menu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        toggle.setAttribute('aria-expanded','true');
+      }
+      function closeMenu(){
+        menu.setAttribute('aria-hidden','true');
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+        toggle.setAttribute('aria-expanded','false');
+      }
+      toggle.addEventListener('click', function(e){ e.preventDefault(); var hidden = menu.getAttribute('aria-hidden') === 'true'; if(hidden) openMenu(); else closeMenu(); });
+      if(closeBtn) closeBtn.addEventListener('click', function(e){ e.preventDefault(); closeMenu(); });
+      // close when tapping outside the menu on small screens
+      document.addEventListener('click', function(e){ if(menu.getAttribute('aria-hidden')==='false'){ if(!menu.contains(e.target) && !toggle.contains(e.target)){ closeMenu(); } } });
+      // close on Escape
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+    })();
+  </script>
