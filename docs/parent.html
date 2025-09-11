@@ -4,14 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>What Parents Need to Know — Ms. Shawna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./_assets/custom-welcome.css">
   <style>
     /* Page-scoped: make the main CTA a sans-serif for better readability and tighten letter-spacing */
     .script-cta{ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight:700; font-size:18px; color:#071826; line-height:1.1; letter-spacing:-0.6px }
     @media(min-width:420px){ .script-cta{ font-size:20px } }
-    /* Page-scoped: Titan-like welcome header and cost bubbles (mobile-first) */
-    @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
-    .titan-welcome{font-family:'Titan One', 'Londrina Solid', 'Bevan', cursive, serif;display:block;text-align:center;margin:12px auto 8px auto;padding:0 6px;font-size:20px;line-height:1.06;color:#071826}
+    /* Page-scoped: use the same Titan One hero-heading styles from index.html */
+    /* Load Titan One the same way the welcome page does so rendering matches exactly */
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+  <style>
+    .hero-heading.titan-one-regular{
+      display:block;
+      background: transparent; /* remove pill box */
+      color: #071233;
+      padding: 0; /* remove pill padding */
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 22px; /* bigger on mobile */
+      line-height:1.02;
+      text-align:center;
+      margin:12px auto 8px auto;
+      max-width: 92%;
+      -webkit-font-smoothing:antialiased;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.06), 0 6px 18px rgba(0,0,0,0.06);
+    }
+    /* Slightly larger on small tablets/large phones */
+    @media(min-width:420px){
+      .hero-heading.titan-one-regular{font-size:40px}
+    }
+    @media(min-width:700px){
+      .hero-heading.titan-one-regular{font-size:48px}
+    }
     .cost-head{margin-top:12px;font-size:20px}
     .parent-body{font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;font-size:14px;color:#202428;text-align:center;margin:6px auto 12px auto;max-width:360px}
 
@@ -22,7 +48,6 @@
 
     /* condensed look for the bubble text on narrow screens */
     @media(max-width:420px){
-      .titan-welcome{font-size:18px;padding:0 10px}
       .cost-bubble{font-size:14px;padding:12px 16px}
       .parent-body{font-size:13px}
     }
@@ -30,7 +55,7 @@
     @media(min-width:700px){
       .cost-bubbles{flex-direction:row;gap:12px}
       .cost-bubble{max-width:240px}
-      .titan-welcome{font-size:28px}
+  /* titan-welcome removed; hero-heading.titan-one-regular handles large sizes */
       .cost-head{font-size:24px}
     }
   </style>
@@ -61,10 +86,10 @@
 
     <!-- New intro content: Titan welcome header, Helvetica body, cost header and gradient oval CTAs -->
     <div class="parent-intro">
-      <h2 class="titan-welcome">Ask Your Student Who is Helping Them with College Applications.</h2>
+    <h2 class="hero-heading titan-one-regular">Ask Your Student Who is Helping Them with College Applications.</h2>
       <p class="parent-body">Your student most likely is waitng for their turn to be helped at school.</p>
 
-      <h3 class="titan-welcome cost-head">How Much Will This Cost Me?</h3>
+  <h3 class="hero-heading titan-one-regular cost-head">How Much Will This Cost Me?</h3>
 
       <div class="cost-bubbles" role="list">
         <button class="cost-bubble" role="listitem">The same your last hair appointment.</button>
