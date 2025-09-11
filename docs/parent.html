@@ -43,7 +43,16 @@
 
     /* Mobile-first oval gradient speech bubbles */
     .cost-bubbles{display:flex;flex-direction:column;gap:10px;align-items:center;margin:8px auto 18px auto}
-    .cost-bubble{width:100%;max-width:360px;border:0;padding:14px 18px;border-radius:999px;background:linear-gradient(135deg,#ff9a9e 0%,#fad0c4 50%,#fad0c4 100%);color:#081221;font-weight:800;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:15px;text-align:center;box-shadow:0 8px 22px rgba(12,18,25,0.12);cursor:pointer}
+  .cost-bubble{width:100%;max-width:360px;border:0;padding:14px 18px;border-radius:999px;color:#081221;font-weight:800;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:15px;text-align:center;box-shadow:0 12px 30px rgba(12,18,25,0.18);position:relative;overflow:visible}
+  /* per-bubble gradients */
+  .cost-bubble.bubble-1{background:linear-gradient(145deg,#ffd6a5 0%,#ffadad 60%);} /* warm coral to peach */
+  .cost-bubble.bubble-2{background:linear-gradient(145deg,#c7f9cc 0%,#97f5ff 60%);} /* mint to aqua */
+  .cost-bubble.bubble-3{background:linear-gradient(145deg,#f3d7ff 0%,#fbd1c8 60%);} /* lavender to soft peach */
+
+  /* add a soft inner gloss using pseudo-element */
+  .cost-bubble::before{content:"";position:absolute;left:8%;top:6%;width:84%;height:48%;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.12));pointer-events:none;filter:blur(0.6px)}
+  /* subtle outer rim highlight */
+  .cost-bubble::after{content:"";position:absolute;inset:0;border-radius:999px;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(0,0,0,0));-webkit-mask:linear-gradient(#000,#000);mask:linear-gradient(#000,#000);pointer-events:none}
     .cost-bubble:active{transform:translateY(1px)}
 
     /* condensed look for the bubble text on narrow screens */
@@ -92,9 +101,9 @@
   <h3 class="hero-heading titan-one-regular cost-head">How Much Will This Cost Me?</h3>
 
       <div class="cost-bubbles" role="list">
-        <button class="cost-bubble" role="listitem">The same your last hair appointment.</button>
-        <button class="cost-bubble" role="listitem">The same as a good resturant meal.</button>
-        <button class="cost-bubble" role="listitem">The same as those back-to-school shoes.</button>
+        <button class="cost-bubble bubble-1" role="listitem">The same your last hair appointment.</button>
+        <button class="cost-bubble bubble-2" role="listitem">The same as a good resturant meal.</button>
+        <button class="cost-bubble bubble-3" role="listitem">The same as those back-to-school shoes.</button>
       </div>
     </div>
 
