@@ -84,28 +84,18 @@ export default function useRealtimeVoice(options = {}) {
       const offer = await pc.createOffer();
       await pc.setLocalDescription(offer);
 
-      // send offer to OpenAI Realtime (server proxy provides credential/session)
-      // The server's token endpoint returned `session` which may include `client_secret` or a URL; adapt to expected shape
-      // We'll POST the SDP to OpenAI Realtime sessions' connection URL using the returned session.client_secret.value as a bearer if needed.
-      // For simplicity, send the offer to the OpenAI Realtime endpoint using the session.client_secret.value as bearer token if present.
-      const openaiUrl = 'https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17';
-      const bearer = session?.client_secret?.value || null;
-
-      const sdpResp = await fetch('https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17', {
+      // Send the offer to our server proxy which will call OpenAI Realtime and return the answer SDP
+      const resp = await fetch('/api/voice/offer', {
         method: 'POST',
-        headers: {
-          'Authorization': bearer ? `Bearer ${bearer}` : undefined,
-          'Content-Type': 'application/sdp'
-        },
-        body: offer.sdp
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sdp: offer.sdp })
       });
-
-      if (!sdpResp.ok) {
-        const t = await sdpResp.text();
-        throw new Error('Realtime SDP exchange failed: ' + t);
+      if (!resp.ok) {
+        const txt = await resp.text();
+        throw new Error('Server SDP proxy failed: ' + resp.status + ' ' + txt);
       }
-
-      const answerSdp = await sdpResp.text();
+      const body = await resp.json();
+      const answerSdp = body.sdp;
       await pc.setRemoteDescription({ type: 'answer', sdp: answerSdp });
 
       setConnected(true);
