@@ -48,6 +48,39 @@ app.get('/api/voice/token', async (req, res) => {
   }
 });
 
+/**
+ * POST /api/voice/offer
+ * Body: { sdp: string, type?: string }
+ * Proxies the SDP offer to OpenAI Realtime and returns the answer SDP.
+ * Server must have OPENAI_API_KEY in environment. No PII is stored or logged.
+ */
+app.post('/api/voice/offer', async (req, res) => {
+  try {
+    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+    if (!OPENAI_API_KEY) return res.status(500).json({ error: 'Server not configured. Set OPENAI_API_KEY.' });
+
+    const { sdp } = req.body || {};
+    if (!sdp) return res.status(400).json({ error: 'Missing sdp in request body.' });
+
+    // Post the SDP to OpenAI Realtime endpoint using server API key
+    const url = 'https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17';
+    const r = await axios.post(url, sdp, {
+      headers: {
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        'Content-Type': 'application/sdp'
+      },
+      responseType: 'text',
+      timeout: 20000
+    });
+
+    // r.data should be the SDP answer text
+    return res.json({ sdp: r.data, type: 'answer' });
+  } catch (err) {
+    console.error('Error proxying SDP offer:', err?.response?.data || err.message);
+    return res.status(500).json({ error: 'Failed to exchange SDP with OpenAI' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Voice token server listening on http://localhost:${PORT}`);
 });
