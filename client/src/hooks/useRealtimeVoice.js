@@ -20,7 +20,10 @@ export default function useRealtimeVoice(options = {}) {
   const silenceTimerRef = useRef(null);
   const mediaStreamRef = useRef(null);
   const pcRef = useRef(null); // RTCPeerConnection
+  const audioElRef = useRef(null); // audio element for remote audio
   const abortControllerRef = useRef(null);
+  const modelTextListenersRef = useRef(new Set());
+  const playingAudioRef = useRef(null); // any pre-cached audio playing
 
   const resetSilenceTimer = useCallback(() => {
     if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
@@ -39,8 +42,72 @@ export default function useRealtimeVoice(options = {}) {
       if (!resp.ok) throw new Error('Token request failed');
       const session = await resp.json();
 
-      // TODO: create WebRTC connection using session.client_secret or similar fields returned
-      // For now, mark connected. Implementing full WebRTC with OpenAI Realtime is handled in later steps.
+      // Build RTCPeerConnection
+      const pc = new RTCPeerConnection({ iceServers: [] });
+      pcRef.current = pc;
+
+      // data channel for text/events
+      const dc = pc.createDataChannel('oai-events');
+      dc.onmessage = (ev) => {
+        try {
+          const msg = JSON.parse(ev.data);
+          if (msg.type === 'response.output_text' || msg.type === 'model.text') {
+            setModelText((t) => t + '\n' + msg.text);
+            // notify listeners
+            modelTextListenersRef.current.forEach((fn) => { try { fn(msg.text); } catch (e) {} });
+          }
+        } catch (e) {}
+      };
+
+      // play remote audio when track arrives
+      pc.ontrack = (event) => {
+        try {
+          const [stream] = event.streams;
+          if (!audioElRef.current) {
+            const a = document.createElement('audio');
+            a.autoplay = true; a.playsInline = true; a.style.display='none';
+            document.body.appendChild(a);
+            audioElRef.current = a;
+          }
+          audioElRef.current.srcObject = stream;
+          audioElRef.current.play().catch(()=>{});
+        } catch (e) { console.warn('ontrack', e); }
+      };
+
+      // get microphone and add track
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaStreamRef.current = stream;
+      const track = stream.getAudioTracks()[0];
+      if (track) pc.addTrack(track, stream);
+
+      // create offer
+      const offer = await pc.createOffer();
+      await pc.setLocalDescription(offer);
+
+      // send offer to OpenAI Realtime (server proxy provides credential/session)
+      // The server's token endpoint returned `session` which may include `client_secret` or a URL; adapt to expected shape
+      // We'll POST the SDP to OpenAI Realtime sessions' connection URL using the returned session.client_secret.value as a bearer if needed.
+      // For simplicity, send the offer to the OpenAI Realtime endpoint using the session.client_secret.value as bearer token if present.
+      const openaiUrl = 'https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17';
+      const bearer = session?.client_secret?.value || null;
+
+      const sdpResp = await fetch('https://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17', {
+        method: 'POST',
+        headers: {
+          'Authorization': bearer ? `Bearer ${bearer}` : undefined,
+          'Content-Type': 'application/sdp'
+        },
+        body: offer.sdp
+      });
+
+      if (!sdpResp.ok) {
+        const t = await sdpResp.text();
+        throw new Error('Realtime SDP exchange failed: ' + t);
+      }
+
+      const answerSdp = await sdpResp.text();
+      await pc.setRemoteDescription({ type: 'answer', sdp: answerSdp });
+
       setConnected(true);
       return { ok: true, session };
     } catch (err) {
@@ -116,11 +183,12 @@ export default function useRealtimeVoice(options = {}) {
   // Public start: try realtime first, else fallback to browser STT
   const start = useCallback(async () => {
     const realtime = await startRealtime();
+    // Barge-in: cancel any playing audio
+    if (playingAudioRef.current) try { playingAudioRef.current.pause(); } catch (e) {}
     if (!realtime.ok) {
       startBrowserSTT();
     } else {
-      // TODO: start WebRTC audio capture and streaming
-      // For now, also start browser STT as a parallel backup
+      // when realtime is active we still use browser STT for interim transcripts optionally
       startBrowserSTT();
     }
   }, [startRealtime, startBrowserSTT]);
@@ -129,7 +197,7 @@ export default function useRealtimeVoice(options = {}) {
     // stop any active recognition or media
     stopBrowserSTT();
     if (pcRef.current) {
-      try { pcRef.current.close(); } catch (e) {}
+      try { pcRef.current.getSenders().forEach(s=>s.track?.stop()); pcRef.current.close(); } catch (e) {}
       pcRef.current = null;
     }
     setConnected(false);
@@ -153,8 +221,10 @@ export default function useRealtimeVoice(options = {}) {
   useEffect(() => {
     const handleStartSpeaking = () => {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      if (audioElRef.current) try { audioElRef.current.pause(); } catch (e) {}
+      if (playingAudioRef.current) try { playingAudioRef.current.pause(); } catch (e) {}
     };
-    // When speech recognition starts, cancel TTS
+    // When speech recognition starts, cancel TTS and pause pre-cached audio
     if (recognitionRef.current) {
       recognitionRef.current.onstart = handleStartSpeaking;
     }
@@ -181,12 +251,15 @@ export default function useRealtimeVoice(options = {}) {
     modelText,
     // callbacks to allow parent to subscribe/receive events
     onTranscript: (cb) => {
-      // very small subscription model; in practice use refs or event emitters
-      // For now consumer can read `transcript` from hook state.
-      console.warn('useRealtimeVoice: onTranscript subscription not implemented; read transcript state instead.');
+      // simple hookup: caller can poll `transcript` or register a callback
+      console.warn('useRealtimeVoice: onTranscript callback registration not implemented; read transcript state instead.');
     },
     onModelText: (cb) => {
-      console.warn('useRealtimeVoice: onModelText subscription not implemented; read modelText state instead.');
-    }
+      if (typeof cb === 'function') modelTextListenersRef.current.add(cb);
+      return () => { modelTextListenersRef.current.delete(cb); };
+    },
+    // internal: allow caller to set an audio element to play remote audio into
+    _setAudioElement: (el) => { audioElRef.current = el; },
+    _setPlayingAudioRef: (a) => { playingAudioRef.current = a; }
   };
 }

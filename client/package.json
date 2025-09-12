@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+  "dev": "vite --host --port 5174",
+  "dev:https": "vite --config vite.config.js",
     "build": "vite build",
+    "precache:tts": "node ../scripts/precache-tts.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -19,8 +21,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
+    
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.33.0",
