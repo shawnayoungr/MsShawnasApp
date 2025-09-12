@@ -6,8 +6,9 @@
   "scripts": {
   "dev": "vite --host --port 5174",
   "dev:https": "vite --config vite.config.js",
-    "build": "vite build",
-    "precache:tts": "node ../scripts/precache-tts.js",
+  "build": "vite build",
+  "precache:tts": "node ../scripts/precache-tts.js",
+  "dev:all": "concurrently \"node server/index.js\" \"vite --host --port 5174\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -23,13 +24,14 @@
     "@eslint/js": "^9.33.0",
     
     "@vitejs/plugin-react": "^5.0.0",
-    "autoprefixer": "^10.4.21",
+  "autoprefixer": "^10.4.21",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "concurrently": "^8.2.0"
   }
 }
