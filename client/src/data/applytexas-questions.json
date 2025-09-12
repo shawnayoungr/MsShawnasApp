@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "key": "residency",
+    "prompt": "What state do you currently live in?"
+  },
+  {
+    "id": "2", 
+    "key": "citizenship",
+    "prompt": "Are you a U.S. citizen or permanent resident?"
+  },
+  {
+    "id": "3",
+    "key": "ethnicity", 
+    "prompt": "How would you describe your race or ethnicity?"
+  },
+  {
+    "id": "4",
+    "key": "gpa",
+    "prompt": "What is your current GPA or grade average?"
+  },
+  {
+    "id": "5",
+    "key": "sat_date",
+    "prompt": "When did you take or plan to take the SAT test?"
+  },
+  {
+    "id": "6",
+    "key": "act_date", 
+    "prompt": "When did you take or plan to take the ACT test?"
+  },
+  {
+    "id": "7",
+    "key": "activities",
+    "prompt": "What extracurricular activities or clubs are you involved in?"
+  },
+  {
+    "id": "8",
+    "key": "work_experience",
+    "prompt": "Do you have any work experience or part-time jobs?"
+  },
+  {
+    "id": "9",
+    "key": "awards",
+    "prompt": "Have you received any academic awards or honors?"
+  },
+  {
+    "id": "10",
+    "key": "volunteer",
+    "prompt": "Have you done any volunteer work or community service?"
+  },
+  {
+    "id": "11",
+    "key": "career_interest",
+    "prompt": "What career or field of study interests you most?"
+  },
+  {
+    "id": "12",
+    "key": "college_plans",
+    "prompt": "What are your plans for college after high school?"
+  }
+]

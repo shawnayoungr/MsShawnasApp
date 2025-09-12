@@ -12,6 +12,7 @@ import FAFSAGuide from './pages/FAFSAGuide';
 import StudentSuccess from './pages/StudentSuccess';
 import STEM from './pages/STEM';
 import ChatGptAssistant from './pages/ChatGptAssistant';
+import AgentInterview from './pages/AgentInterview';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/success" element={<StudentSuccess />} />
         <Route path="/stem" element={<STEM />} />
         <Route path="/chatgpt" element={<ChatGptAssistant />} />
+        <Route path="/agent-interview" element={<AgentInterview />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
