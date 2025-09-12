@@ -104,11 +104,32 @@ export default function VoiceInterview() {
   const handleNext = () => {
     if (idx < total - 1) setIdx((i) => i + 1);
     else {
-      // finish
-      if (navigator.vibrate) navigator.vibrate(200);
-      try { new Audio('/assets/win-short.mp3').play(); } catch (e) {}
-      // simple confetti effect via emoji for MVP
-      alert('🎉 Finished! Click Review to see your answers.');
+      // finish: haptic + sound + confetti + model next steps
+      if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+      try {
+        // short sine 'win' tone
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'sine'; o.frequency.value = 880;
+        o.connect(g); g.connect(ctx.destination);
+        g.gain.setValueAtTime(0.0001, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + 0.02);
+        o.start();
+        setTimeout(()=>{ o.frequency.value = 660; g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.4); o.stop(ctx.currentTime + 0.45); }, 250);
+      } catch (e) {}
+
+      // simple confetti dots
+      try {
+        const c = document.createElement('div');
+        c.style.position = 'fixed'; c.style.left = 0; c.style.top = 0; c.style.right = 0; c.style.bottom = 0; c.style.pointerEvents='none';
+        for (let i=0;i<40;i++){ const s=document.createElement('div'); s.textContent='🎉'; s.style.position='absolute'; s.style.left=(Math.random()*90)+'%'; s.style.top=(Math.random()*80)+'%'; s.style.fontSize=(12+Math.random()*20)+'px'; c.appendChild(s); }
+        document.body.appendChild(c);
+        setTimeout(()=>document.body.removeChild(c), 3000);
+      } catch (e) {}
+
+      // model announces next steps
+      speak('Great job! You finished the practice interview. This does not submit your application. Tap Review to copy or email your summary, then open ApplyTexas in a new tab to paste your answers. Come back here when you are ready for step two.');
     }
   };
 

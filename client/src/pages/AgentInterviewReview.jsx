@@ -51,17 +51,10 @@ export default function AgentInterviewReview() {
   };
 
   const copySummary = () => copyText(summaryText, null);
-  const shareSummary = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: "ApplyTexas Draft Summary", text: summaryText });
-      } catch (e) { /* user cancelled */ }
-    } else {
-      await copyText(summaryText, null);
-    }
-  };
   const emailSummary = () => {
-    const mailto = `mailto:?subject=${encodeURIComponent("My ApplyTexas draft summary")}&body=${encodeURIComponent(summaryText)}`;
+    // Prefill To if student email is known
+    const to = draftObj?.applicant?.email ? `mailto:${encodeURIComponent(draftObj.applicant.email)}` : 'mailto:';
+    const mailto = `${to}?subject=${encodeURIComponent("My ApplyTexas draft summary")}&body=${encodeURIComponent(summaryText)}`;
     window.location.href = mailto;
   };
 
@@ -139,7 +132,6 @@ export default function AgentInterviewReview() {
       {/* Sticky student actions */}
       <div className="sticky-bar">
         <button className="btn btn-primary" onClick={copySummary}>Copy Summary</button>
-        <button className="btn" onClick={shareSummary}>Share</button>
         <button className="btn" onClick={emailSummary}>Email</button>
       </div>
     </main>
@@ -200,97 +192,4 @@ function buildStudentSummary(d) {
 
   return L.join("\n");
 }
-// client/src/pages/AgentInterviewReview.jsx
-import React, { useMemo, useRef, useState } from "react";
-import questionsRaw from "../data/applytexas-questions.json";
-import { mapInterviewToApplyTexas } from "../services/applytexasMapper";
 
-export default function AgentInterviewReview() {
-  // Build dynamic “three years ago” and replace token so IDs align with the interview page
-  const threeYearsAgo = useMemo(() => {
-    const d = new Date();
-    d.setFullYear(d.getFullYear() - 3);
-    return d.toLocaleString(undefined, { month: "long", year: "numeric" });
-  }, []);
-  const questions = useMemo(
-    () => questionsRaw.map(q => ({ ...q, text: q.text.replaceAll("{{residencyAnchor}}", threeYearsAgo) })),
-    [threeYearsAgo]
-  );
-
-  const answers = useMemo(() => {
-    try { return JSON.parse(localStorage.getItem("agentInterviewAnswers") || "[]"); }
-    catch { return []; }
-  }, []);
-
-  const [jsonStr, setJsonStr] = useState(() =>
-    JSON.stringify(mapInterviewToApplyTexas({ questions, answers }), null, 2)
-  );
-  const taRef = useRef(null);
-
-  const copyJSON = async () => {
-    try {
-      await navigator.clipboard.writeText(jsonStr);
-      alert("JSON copied!");
-    } catch {
-      try { taRef.current?.select(); document.execCommand("copy"); alert("JSON copied!"); }
-      catch { alert("Copy failed — select and copy manually."); }
-    }
-  };
-
-  const downloadJSON = () => {
-    const blob = new Blob([jsonStr], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url; a.download = "applytexas-draft.json"; a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  return (
-    <main className="container dev-offset">
-      <header style={{ textAlign: "center" }}>
-        <h1 className="h1">Review & Export</h1>
-        <p className="muted">Your answers and a structured ApplyTexas draft.</p>
-      </header>
-
-      <section className="card">
-        <h2 className="h2">Your Answers</h2>
-        <ol className="ol">
-          {questions.map((q, i) => (
-            <li key={q.id} className="li">
-              <div className="q">{q.text}</div>
-              <div className="a">{answers?.[i] ?? ""}</div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="card" style={{marginTop:12}}>
-        <h2 className="h2">ApplyTexas Draft (JSON)</h2>
-        <textarea
-          ref={taRef}
-          readOnly
-          value={jsonStr}
-          onChange={() => {}}
-          className="textarea"
-        />
-        <div className="sticky-bar">
-          <button onClick={copyJSON} aria-label="Copy JSON" className="btn btn-primary">Copy JSON</button>
-          <button onClick={downloadJSON} aria-label="Download JSON" className="btn">Download JSON</button>
-        </div>
-      </section>
-    </main>
-  );
-}
-
-function btn() {
-  return {
-    flex: 1,
-    padding: "12px 14px",
-    border: "1px solid #e5e7eb",
-    background: "#111827",
-    color: "#fff",
-    borderRadius: 10,
-    fontSize: 14,
-    fontWeight: 600,
-  };
-}
