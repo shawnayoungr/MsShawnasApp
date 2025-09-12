@@ -14,6 +14,7 @@ import STEM from './pages/STEM';
 import ChatGptAssistant from './pages/ChatGptAssistant';
 import AgentInterview from './pages/AgentInterview.jsx';
 import AgentInterviewReview from "./pages/AgentInterviewReview.jsx";
+import VoiceInterview from './pages/VoiceInterview.jsx';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -21,8 +22,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       {import.meta.env.DEV && (
         <div className="dev-offset" style={{position:'fixed',top:8,left:8,zIndex:9999,display:'flex',gap:8}}>
-          <Link to="/agent-interview" className="btn btn-small">
-            Agent Interview
+          <Link to="/voice" className="btn btn-small">
+            College Interview
           </Link>
           <Link to="/agent-interview/review" className="btn btn-small">
             Review (DEV)
@@ -43,6 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/chatgpt" element={<ChatGptAssistant />} />
         <Route path="/agent-interview" element={<AgentInterview />} />
         <Route path="/agent-interview/review" element={<AgentInterviewReview />} />
+        <Route path="/voice" element={<VoiceInterview />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
