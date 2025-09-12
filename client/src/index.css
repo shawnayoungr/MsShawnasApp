@@ -1,11 +1,36 @@
 
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;600&display=swap');
 @import './App.css';
 /* @tailwind directives require Tailwind CSS/PostCSS processing.
 
-/* === Ms. Shawna mobile kit === */
-:root { --bg:#f8fafc; --card:#fff; --ink:#111827; --muted:#6b7280; --ring:#e5e7eb; }
+/* === Ms. Shawna mobile kit + Voice theme tokens === */
+:root {
+  /* basic palette */
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --ink: #111827;
+  --muted: #6b7280;
+  --ring: #e5e7eb;
+
+  /* voice-theme matte gradients (purple -> indigo -> blue) */
+  --matte-grad-start: #6b21a8; /* purple */
+  --matte-grad-mid: #4f46e5;   /* indigo */
+  --matte-grad-end: #0ea5e9;   /* blue */
+  --matte-gradient: linear-gradient(135deg,var(--matte-grad-start),var(--matte-grad-mid),var(--matte-grad-end));
+
+  /* accent */
+  --accent: #FF8A00;
+}
+
 html,body,#root{ height:100%; }
-body{ margin:0; background:var(--bg); color:var(--ink); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+h1,h2,h3,h4,h5{ font-family: 'Poppins', Inter, system-ui, sans-serif; }
 a{ color:inherit; }
 
 .container{ width:100%; max-width:680px; margin:0 auto; padding:12px; }
