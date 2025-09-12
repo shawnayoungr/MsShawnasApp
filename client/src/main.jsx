@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Splash from './pages/Splash';
 import Checklist from './pages/Checklist';
 import SeniorStuff from './pages/SeniorStuff';
@@ -12,11 +12,23 @@ import FAFSAGuide from './pages/FAFSAGuide';
 import StudentSuccess from './pages/StudentSuccess';
 import STEM from './pages/STEM';
 import ChatGptAssistant from './pages/ChatGptAssistant';
+import AgentInterview from './pages/AgentInterview.jsx';
+import AgentInterviewReview from "./pages/AgentInterviewReview.jsx";
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
+      {import.meta.env.DEV && (
+        <div className="dev-offset" style={{position:'fixed',top:8,left:8,zIndex:9999,display:'flex',gap:8}}>
+          <Link to="/agent-interview" className="btn btn-small">
+            Agent Interview
+          </Link>
+          <Link to="/agent-interview/review" className="btn btn-small">
+            Review (DEV)
+          </Link>
+        </div>
+      )}
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/checklist" element={<Checklist />} />
@@ -29,6 +41,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/success" element={<StudentSuccess />} />
         <Route path="/stem" element={<STEM />} />
         <Route path="/chatgpt" element={<ChatGptAssistant />} />
+        <Route path="/agent-interview" element={<AgentInterview />} />
+        <Route path="/agent-interview/review" element={<AgentInterviewReview />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
