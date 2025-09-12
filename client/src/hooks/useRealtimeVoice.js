@@ -85,7 +85,8 @@ export default function useRealtimeVoice(options = {}) {
       await pc.setLocalDescription(offer);
 
       // Send the offer to our server proxy which will call OpenAI Realtime and return the answer SDP
-      const resp = await fetch('/api/voice/offer', {
+      const offerUrl = import.meta.env.VITE_VOICE_OFFER_URL || '/api/voice/offer';
+      const resp = await fetch(offerUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sdp: offer.sdp })
