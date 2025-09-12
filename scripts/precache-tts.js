@@ -4,6 +4,12 @@
 
 const fs = require('fs');
 const path = require('path');
+// Load OPENAI_API_KEY from client/server/.env so developers don't need to export it each time
+try {
+  require('dotenv').config({ path: path.resolve(__dirname, '../client/server/.env') });
+} catch (e) {
+  // dotenv is optional; the client workspace should have it as a devDependency
+}
 const { pipeline } = require('stream');
 const { promisify } = require('util');
 const pump = promisify(pipeline);
@@ -11,7 +17,7 @@ const pump = promisify(pipeline);
 async function main() {
   const key = process.env.OPENAI_API_KEY;
   if (!key) {
-    console.error('Please set OPENAI_API_KEY in the environment.');
+    console.error('OPENAI_API_KEY missing. Add it to client/server/.env (this file is gitignored).');
     process.exit(1);
   }
 
